@@ -28,7 +28,7 @@ body {
 	font-size: 14px
 }
 
-a, a:hover, a:focus, i, input, button, input:focus, .transition {
+a, li:hover, a:hover, a:focus, i, input, button, input:focus, .transition {
 	text-decoration: none;
 	outline: none;
 	transition-delay: 0s;
@@ -321,6 +321,11 @@ svg, img {
 	margin-right: 15px;
 	margin-bottom: 15px;
 	font-weight: 500;
+}
+
+.ds-skills-list li:hover{
+	background-color: #F26464;
+	color: #FFF;
 }
 
 /*-----------------------------------------------------------------
