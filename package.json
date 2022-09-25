@@ -1,0 +1,24 @@
+{
+  "name": "bougrat-alexandre",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Myogamevideo/bougrat-alexandre.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Myogamevideo/bougrat-alexandre/issues"
+  },
+  "homepage": "https://github.com/Myogamevideo/bougrat-alexandre#readme",
+  "dependencies": {
+    "animejs": "^3.2.1",
+    "leaflet": "^1.9.1",
+    "magicmouse.js": "^1.2.1"
+  }
+}
