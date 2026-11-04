@@ -12,6 +12,14 @@ if (header) {
 
     updateHeader();
     window.addEventListener("scroll", updateHeader, { passive: true });
+
+    const footer = document.querySelector(".ds-footer");
+    if (footer && "IntersectionObserver" in window) {
+        const footerObserver = new IntersectionObserver(([entry]) => {
+            header.classList.toggle("ds-footer-visible", entry.isIntersecting);
+        }, { threshold: 0.08 });
+        footerObserver.observe(footer);
+    }
 }
 
 const typewriterElements = document.querySelectorAll(".typewrite");

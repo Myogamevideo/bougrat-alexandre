@@ -1086,6 +1086,9 @@ button:focus-visible {
 
 .ds-experience-list > .col-12 {
     display: flex;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
 }
 
 .ds-experience-list section {
@@ -1095,7 +1098,7 @@ button:focus-visible {
     border: 1px solid var(--line);
     border-radius: 16px;
     background: var(--surface);
-    box-shadow: 0 8px 26px rgba(23, 43, 59, 0.045);
+    box-shadow: 0 12px 30px rgba(23, 43, 59, 0.055);
 }
 
 .ds-experience-list span.ds-year {
@@ -1260,6 +1263,16 @@ button:focus-visible {
     padding: 76px 0 34px;
     color: #fff;
     background: #142635;
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+    box-sizing: border-box;
+}
+
+.ds-header.ds-footer-visible {
+    transform: translateY(-110%);
+    opacity: 0;
+    pointer-events: none;
 }
 
 .ds-footer section {
