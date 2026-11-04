@@ -17,6 +17,30 @@ if (header) {
 const typewriterElements = document.querySelectorAll(".typewrite");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+if (!reduceMotion && "IntersectionObserver" in window) {
+    const revealTargets = document.querySelectorAll(
+        ".ds-about-section, .ds-skills-section .col-12, .ds-experience-list > .col-12, .project-card, .personal-card, .ai-panel"
+    );
+
+    if (revealTargets.length > 0) {
+        document.documentElement.classList.add("has-scroll-reveal");
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: "0px 0px -36px 0px" });
+
+        revealTargets.forEach((target) => {
+            target.classList.add("reveal-on-scroll");
+            revealObserver.observe(target);
+        });
+    }
+}
+
 if (!reduceMotion) {
     typewriterElements.forEach((element) => {
         const phrases = JSON.parse(element.dataset.type || "[]");

@@ -19,7 +19,7 @@
 
     @page {
       size: A4;
-      margin: 7mm 9mm;
+      margin: 9mm 11mm;
     }
 
     * {
@@ -281,7 +281,7 @@
     @media print {
       @page {
         size: A4;
-        margin: 7mm 9mm;
+        margin: 9mm 11mm;
       }
 
       html {
@@ -294,119 +294,137 @@
         padding: 0;
         box-shadow: none;
         color: #263745;
-        font-size: 7.8pt;
-        line-height: 1.15;
+        font-size: 10pt;
+        line-height: 1.24;
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        column-gap: 7mm;
+        align-items: start;
+      }
+
+      main > section {
+        min-width: 0;
+        margin-top: 7px;
+      }
+
+      .cv-experience,
+      .cv-languages {
+        grid-column: 1 / -1;
       }
 
       .cv-header {
         gap: 10px;
-        padding-bottom: 5px;
+        padding-bottom: 7px;
         border-bottom-width: 2px;
       }
 
       .profile-photo {
-        width: 18mm;
-        height: 18mm;
-        flex-basis: 18mm;
+        display: block;
+        width: 23mm;
+        height: 23mm;
+        flex-basis: 23mm;
       }
 
       .eyebrow {
-        font-size: 7pt;
+        font-size: 8.5pt;
+        letter-spacing: normal;
+        text-transform: none;
       }
 
       h1 {
         margin-top: 1px;
-        font-size: 20pt;
+        font-size: 23pt;
       }
 
       .role {
         margin-top: 1px;
-        font-size: 10.5pt;
+        font-size: 12pt;
       }
 
       .contact {
-        gap: 1px 8px;
-        margin-top: 4px;
-        font-size: 7.5pt;
+        gap: 2px 11px;
+        margin-top: 5px;
+        font-size: 8.3pt;
       }
 
       .download-link {
         display: none;
       }
 
-      section {
-        margin-top: 4px;
-      }
-
       h2 {
         gap: 5px;
-        margin-bottom: 2px;
-        font-size: 8.5pt;
+        margin-bottom: 4px;
+        font-size: 9.8pt;
       }
 
       .profile {
-        font-size: 8.2pt;
-        line-height: 1.24;
+        font-size: 10pt;
+        line-height: 1.28;
       }
 
       .skills {
-        gap: 1px;
+        gap: 2px;
       }
 
       .job {
-        margin-top: 3px;
+        margin-top: 7px;
       }
 
       .job + .job {
-        padding-top: 3px;
+        padding-top: 6px;
       }
 
       h3 {
-        font-size: 8.5pt;
+        font-size: 10pt;
       }
 
       .entry-logo {
-        width: 22px;
-        height: 18px;
-        flex-basis: 22px;
+        display: none;
       }
 
       .date {
-        font-size: 7.5pt;
+        font-size: 8.7pt;
       }
 
       .job-title {
         margin-top: 0;
-        font-size: 7.8pt;
+        font-size: 9pt;
       }
 
       ul {
-        margin-top: 2px;
-        padding-left: 12px;
+        margin-top: 3px;
+        padding-left: 14px;
       }
 
       li {
-        margin: 1px 0;
+        margin: 2px 0;
         padding-left: 0;
       }
 
       .tech {
-        margin-top: 2px;
-        font-size: 7.5pt;
+        margin-top: 3px;
+        font-size: 8.8pt;
       }
 
       .education-entry {
-        margin-top: 2px;
+        margin-top: 5px;
       }
 
       .education-entry p {
-        margin-top: 0;
-        font-size: 7.5pt;
-        line-height: 1.14;
+        margin-top: 1px;
+        font-size: 9.2pt;
+        line-height: 1.23;
       }
 
       .education-meta {
-        font-size: 7.6pt;
+        font-size: 9pt;
+      }
+
+      .cv-projects .education-entry p {
+        line-height: 1.2;
       }
 
       a {
@@ -453,7 +471,7 @@
     <div class="cv-header-content">
       <p class="eyebrow">Curriculum vitae</p>
       <h1>Alexandre Bougrat</h1>
-      <p class="role">Développeur back-end</p>
+      <p class="role">Développeur back-end · Symfony · Full-stack</p>
       <div class="contact">
         <span>Clermont-Ferrand (63)</span>
         <a href="tel:+33763013381">07 63 01 33 81</a>
@@ -470,49 +488,49 @@
   </header>
 
   <main>
-    <section aria-labelledby="profile-heading">
+    <section class="cv-profile" aria-labelledby="profile-heading">
       <h2 id="profile-heading">Profil</h2>
-      <p class="profile">Développeur back-end à Clermont-Ferrand (63), je conçois et fais évoluer des applications et services web. Mon parcours associe le développement en agence et dans le secteur bancaire à une expérience de formateur en informatique. Je travaille notamment avec PHP, Symfony, les API web et les bases de données SQL.</p>
+      <p class="profile">Développeur back-end à Clermont-Ferrand, je recherche un poste back-end, de préférence avec Symfony, ou full-stack. J’ai conçu, testé et livré des sites web pour des TPE/PME et je fais évoluer des outils internes au Crédit Agricole Centre France.</p>
     </section>
 
-    <section aria-labelledby="skills-heading">
+    <section class="cv-skills" aria-labelledby="skills-heading">
       <h2 id="skills-heading">Compétences</h2>
       <div class="skills">
-        <p class="skill-line"><strong>Back-end :</strong> PHP 8, Symfony, Python, API de services web et CRM</p>
-        <p class="skill-line"><strong>Front-end :</strong> JavaScript, HTML5, CSS3, Twig, Sass, React, Vuetify</p>
-        <p class="skill-line"><strong>Données et outils :</strong> SQL, Git/GitHub, Docker, Ubuntu, Debian</p>
-        <p class="skill-line"><strong>CMS et pratiques :</strong> WordPress, PrestaShop, Storyblok, PWA, tests unitaires et d'intégration</p>
-        <p class="skill-line"><strong>Assistants IA :</strong> Claude et GitHub Copilot, utilisés au quotidien sur mes projets professionnels et personnels</p>
+        <p class="skill-line"><strong>Back-end :</strong> PHP, Symfony, API Platform, Doctrine, Python, Node.js</p>
+        <p class="skill-line"><strong>API et données :</strong> API web, SQL, bases de données, Redis</p>
+        <p class="skill-line"><strong>Front-end :</strong> TypeScript, Angular, Vue.js, Twig, JavaScript, HTML/CSS, SCSS/Sass</p>
+        <p class="skill-line"><strong>Environnement et qualité :</strong> Ubuntu, Shell, Docker, Git, GitLab CI/CD, tests unitaires et d'intégration</p>
+        <p class="skill-line"><strong>Assistants de développement :</strong> Claude et GitHub Copilot</p>
       </div>
     </section>
 
-    <section aria-labelledby="experience-heading">
+    <section class="cv-experience" aria-labelledby="experience-heading">
       <h2 id="experience-heading">Expérience professionnelle</h2>
 
       <article class="job">
         <div class="job-heading">
           <h3><img class="entry-logo" src="assets/images/logos/openstudio.png" alt="" aria-hidden="true">OpenStudio — Clermont-Ferrand (63)</h3>
-          <p class="date">Janvier 2023 – aujourd'hui</p>
+          <p class="date">Depuis janvier 2023</p>
         </div>
-        <p class="job-title">Développeur back-end · CDI · Mission en régie chez Crédit Agricole Centre France · Open source / Ubuntu</p>
+        <p class="job-title">Développeur back-end · CDI · Mission en régie au Crédit Agricole Centre France</p>
         <ul>
-          <li>Réaliser des développements back-end pour le Crédit Agricole, où j'exerce mon activité à 100 % depuis le début de la mission.</li>
-          <li>Analyser les besoins, faire évoluer et maintenir les applications dans un environnement open source sous Ubuntu.</li>
+          <li>Mission en régie à temps plein au Crédit Agricole Centre France depuis février 2023.</li>
         </ul>
-        <p class="tech"><strong>Technologies et outils :</strong> PHP, API web, SQL, Git/GitHub, Ubuntu.</p>
+        <p class="tech"><strong>Vie d'entreprise :</strong> séminaires, TousàOS, football et formations continues.</p>
       </article>
 
       <article class="job">
         <div class="job-heading">
           <h3><img class="entry-logo" src="assets/images/logos/credit-agricole-centre-france.png" alt="" aria-hidden="true">Crédit Agricole Centre France — Clermont-Ferrand (63)</h3>
-          <p class="date">Février 2023 – aujourd'hui</p>
+          <p class="date">Depuis février 2023</p>
         </div>
         <p class="job-title">Mission en régie · Développeur back-end · 100 % chez le client</p>
         <ul>
-          <li>Développer et faire évoluer des solutions back-end dans l'environnement informatique bancaire.</li>
-          <li>Développer principalement avec Symfony et Angular, dans un environnement utilisant GitLab CI/CD et des serveurs cloud.</li>
+          <li>Faire évoluer des outils internes pour améliorer les performances et faciliter le travail des conseillers et des services du siège.</li>
+          <li>Ajouter des fonctionnalités, réécrire un SDK et migrer des applications historiques vers une nouvelle stack.</li>
+          <li>Développer principalement avec Symfony et Angular, avec livraison via GitLab CI/CD.</li>
         </ul>
-        <p class="tech"><strong>Technologies et outils :</strong> Symfony, Angular, GitLab CI/CD, environnements de serveurs cloud.</p>
+        <p class="tech"><strong>Technologies et outils :</strong> Symfony, Angular, GitLab CI/CD.</p>
       </article>
 
       <article class="job">
@@ -522,53 +540,25 @@
         </div>
         <p class="job-title">Formateur en informatique · CDD</p>
         <ul>
-          <li>Former des apprenants au titre professionnel Développeur web et web mobile.</li>
-          <li>Préparer et animer des cours pratiques; accompagner la conception, le développement et le débogage de projets.</li>
+          <li>Former des apprenants au titre professionnel Développeur web et web mobile, et les accompagner sur leurs projets.</li>
         </ul>
         <p class="tech"><strong>Technologies et outils :</strong> Symfony, PHP, SQL, Git/GitHub, HTML/CSS. <a href="https://github.com/Formation-DWWM-2022/formation_web">Supports DWWM 2022</a>.</p>
-        <p class="tech"><strong>Domaines pédagogiques :</strong> algorithmique, projet, maquettage, HTML/CSS (Sass, Bootstrap), JavaScript/TypeScript, Git, SQL, HTTP, API et sécurité web.</p>
       </article>
       <article class="job">
         <div class="job-heading">
           <h3><img class="entry-logo" src="assets/images/logos/drosalys.png" alt="" aria-hidden="true">Drosalys — Clermont-Ferrand (63)</h3>
-          <p class="date">Septembre 2021 – décembre 2022</p>
+          <p class="date">2020–2022</p>
         </div>
-        <p class="job-title">Développeur Full Stack · CDD</p>
+        <p class="job-title">Développeur web puis full-stack · stage, alternance et CDD</p>
         <ul>
-          <li>Analyser les besoins et développer des fonctionnalités front-end/back-end pour des sites vitrines et e-commerce.</li>
-          <li>Intégrer des API en PHP/JavaScript, corriger les anomalies et réaliser des tests unitaires et d'intégration.</li>
+          <li>Développer, tester et livrer des sites vitrines et e-commerce pour des clients TPE/PME.</li>
+          <li>Réaliser des fonctionnalités front-end et back-end, intégrer des API et corriger les anomalies.</li>
         </ul>
         <p class="tech"><strong>Technologies et outils :</strong> PHP, JavaScript, API web, SQL, Git, open source / Ubuntu.</p>
       </article>
-
-      <article class="job">
-        <div class="job-heading">
-          <h3><img class="entry-logo" src="assets/images/logos/drosalys.png" alt="" aria-hidden="true">Drosalys — Clermont-Ferrand (63)</h3>
-          <p class="date">Septembre 2020 – août 2021</p>
-        </div>
-        <p class="job-title">Développeur web · Alternance</p>
-        <ul>
-          <li>Participer à l'analyse des besoins et au développement front-end/back-end de sites vitrines et e-commerce.</li>
-          <li>Faire évoluer et corriger les sites existants, puis vérifier les changements réalisés.</li>
-        </ul>
-        <p class="tech"><strong>Technologies et outils :</strong> PHP, JavaScript, HTML/CSS, SQL, Git, open source / Ubuntu.</p>
-      </article>
-
-      <article class="job">
-        <div class="job-heading">
-          <h3><img class="entry-logo" src="assets/images/logos/drosalys.png" alt="" aria-hidden="true">Drosalys — Clermont-Ferrand (63)</h3>
-          <p class="date">Avril 2020 – juin 2020</p>
-        </div>
-        <p class="job-title">Stagiaire développeur web</p>
-        <ul>
-          <li>Créer des sites vitrines/e-commerce en HTML/CSS, déboguer et modifier des sites existants.</li>
-          <li>Contribuer aux processus internes et collaborer à distance avec l'équipe.</li>
-        </ul>
-        <p class="tech"><strong>Technologies et outils :</strong> HTML, CSS, outils de gestion de versions, open source / Ubuntu.</p>
-      </article>
     </section>
 
-    <section aria-labelledby="projects-heading">
+    <section class="cv-projects" aria-labelledby="projects-heading">
       <h2 id="projects-heading">Projets personnels</h2>
       <article class="education-entry">
         <p><strong><a href="https://myogamevideo.github.io/real-estate-tracker/">Maison &amp; Marché</a> :</strong> tableau de bord immobilier basé sur une adresse française et des données publiques DVF · JavaScript.</p>
@@ -581,7 +571,7 @@
       </article>
     </section>
 
-    <section aria-labelledby="education-heading">
+    <section class="cv-education" aria-labelledby="education-heading">
       <h2 id="education-heading">Formation</h2>
 
       <article class="education-entry">
@@ -602,26 +592,9 @@
         <p>Algorithmique, programmation orientée objet, bases de données, conception logicielle, développement d'applications et projets en équipe.</p>
       </article>
 
-      <article class="education-entry">
-        <div class="job-heading">
-          <h3>Baccalauréat, sciences de l'ingénieur</h3>
-          <p class="date">2015–2018</p>
-        </div>
-        <p class="education-meta">Lycée Pierre-Émile-Martin, Bourges (18) · Option Informatique et sciences du numérique · Mention bien</p>
-        <p>Initiation à l'algorithmique et à la programmation en ISN; analyse et modélisation de systèmes techniques en sciences de l'ingénieur.</p>
-      </article>
-
-      <article class="education-entry">
-        <div class="job-heading">
-          <h3><img class="entry-logo" src="assets/images/logos/google.png" alt="" aria-hidden="true">Fondamentaux du marketing digital</h3>
-          <p class="date">Février 2019</p>
-        </div>
-        <p class="education-meta">Certification Google Ateliers Numériques · février 2019</p>
-        <p>Présence en ligne, création de sites web, référencement naturel, publicité en ligne, réseaux sociaux, marketing mobile et mesure d'audience.</p>
-      </article>
     </section>
 
-    <section aria-labelledby="languages-heading">
+    <section class="cv-languages" aria-labelledby="languages-heading">
       <h2 id="languages-heading">Langues</h2>
       <p class="languages">Français : langue maternelle · Anglais : B1 · Espagnol : A2</p>
     </section>
