@@ -167,6 +167,13 @@
       line-height: 1.5;
     }
 
+    .cv-profile {
+      padding: 11px 13px;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      background: #f8f4f2;
+    }
+
     .skills {
       display: grid;
       gap: 4px;
@@ -180,6 +187,18 @@
       color: var(--ink);
     }
 
+    .skill-infrastructure {
+      padding: 7px 9px;
+      border: 1px solid #d9e3e8;
+      border-left: 3px solid #3f7188;
+      border-radius: 6px;
+      background: #f2f7f9;
+    }
+
+    .skill-infrastructure strong {
+      color: #315d70;
+    }
+
     .job {
       margin-top: 10px;
       break-inside: avoid;
@@ -188,6 +207,13 @@
     .job + .job {
       padding-top: 9px;
       border-top: 1px solid var(--rule);
+    }
+
+    .job-cacf {
+      padding: 9px 12px 10px;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      background: #fbf7f5;
     }
 
     .job-heading {
@@ -294,20 +320,20 @@
         padding: 0;
         box-shadow: none;
         color: #263745;
-        font-size: 10pt;
-        line-height: 1.24;
+        font-size: 8.8pt;
+        line-height: 1.12;
       }
 
       main {
         display: grid;
         grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-        column-gap: 7mm;
+        column-gap: 6mm;
         align-items: start;
       }
 
       main > section {
         min-width: 0;
-        margin-top: 7px;
+        margin-top: 3px;
       }
 
       .cv-experience,
@@ -356,13 +382,17 @@
 
       h2 {
         gap: 5px;
-        margin-bottom: 4px;
-        font-size: 9.8pt;
+        margin-bottom: 3px;
+        font-size: 9.4pt;
       }
 
       .profile {
-        font-size: 10pt;
-        line-height: 1.28;
+        font-size: 9pt;
+        line-height: 1.12;
+      }
+
+      .cv-profile {
+        padding: 6px 9px;
       }
 
       .skills {
@@ -370,11 +400,15 @@
       }
 
       .job {
-        margin-top: 7px;
+        margin-top: 3px;
       }
 
       .job + .job {
-        padding-top: 6px;
+        padding-top: 3px;
+      }
+
+      .job-cacf {
+        padding: 5px 8px 6px;
       }
 
       h3 {
@@ -395,28 +429,36 @@
       }
 
       ul {
-        margin-top: 3px;
+        margin-top: 2px;
         padding-left: 14px;
       }
 
       li {
-        margin: 2px 0;
+        margin: 1px 0;
         padding-left: 0;
       }
 
       .tech {
-        margin-top: 3px;
-        font-size: 8.8pt;
+        margin-top: 2px;
+        font-size: 8.2pt;
+      }
+
+      .contact-links {
+        font-size: 8pt;
+      }
+
+      .work-arrangement {
+        font-size: 8pt;
       }
 
       .education-entry {
-        margin-top: 5px;
+        margin-top: 3px;
       }
 
       .education-entry p {
         margin-top: 1px;
-        font-size: 9.2pt;
-        line-height: 1.23;
+        font-size: 8.3pt;
+        line-height: 1.1;
       }
 
       .education-meta {
@@ -471,7 +513,7 @@
     <div class="cv-header-content">
       <p class="eyebrow">Curriculum vitae</p>
       <h1>Alexandre Bougrat</h1>
-      <p class="role">Développeur back-end · Symfony · Full-stack</p>
+      <p class="role">Développeur back-end confirmé · Symfony · Full-stack</p>
       <div class="contact">
         <span>Clermont-Ferrand (63)</span>
         <a href="tel:+33763013381">07 63 01 33 81</a>
@@ -490,7 +532,7 @@
   <main>
     <section class="cv-profile" aria-labelledby="profile-heading">
       <h2 id="profile-heading">Profil</h2>
-      <p class="profile">Développeur back-end à Clermont-Ferrand, je recherche un poste back-end, de préférence avec Symfony, ou full-stack. J’ai conçu, testé et livré des sites web pour des TPE/PME et je fais évoluer des outils internes au Crédit Agricole Centre France.</p>
+      <p class="profile">Développeur back-end confirmé à Clermont-Ferrand, avec plus de 6 ans d’expérience en développement web, je fais évoluer depuis février 2023 des outils internes au sein du SI du Crédit Agricole Centre France : interfaçage avec des systèmes complexes, flux de données et modernisation d'applications historiques. Je recherche un poste back-end, de préférence avec Symfony, ou full-stack. Mes expériences en TPE/PME complètent ce parcours par une pratique polyvalente du développement web.</p>
     </section>
 
     <section class="cv-skills" aria-labelledby="skills-heading">
@@ -499,7 +541,8 @@
         <p class="skill-line"><strong>Back-end :</strong> PHP, Symfony, API Platform, Doctrine, Python, Node.js</p>
         <p class="skill-line"><strong>API et données :</strong> API web, SQL, bases de données, Redis</p>
         <p class="skill-line"><strong>Front-end :</strong> TypeScript, Angular, Vue.js, Twig, JavaScript, HTML/CSS, SCSS/Sass</p>
-        <p class="skill-line"><strong>Environnement et qualité :</strong> Ubuntu, Shell, Docker, Git, GitLab CI/CD, tests unitaires et d'intégration</p>
+        <p class="skill-line skill-infrastructure"><strong>Infrastructure, Réseau &amp; Environnement :</strong> Proxmox, architectures Docker, administration Linux (Ubuntu), GitLab CI/CD, Shell, réseaux locaux, Home Assistant, automatisation MQTT et données énergétiques</p>
+        <p class="skill-line"><strong>Méthode &amp; qualité :</strong> Agile, Git, tests unitaires et d'intégration</p>
         <p class="skill-line"><strong>Assistants de développement :</strong> Claude et GitHub Copilot</p>
       </div>
     </section>
@@ -517,9 +560,11 @@
           <li>Mission en régie à temps plein au Crédit Agricole Centre France depuis février 2023.</li>
         </ul>
         <p class="tech"><strong>Vie d'entreprise :</strong> séminaires, TousàOS, football et formations continues.</p>
+        <p class="tech work-arrangement"><strong>Rythme chez OpenStudio :</strong> 3 jours de télétravail par semaine</p>
+        <p class="tech contact-links"><strong>Contact :</strong> <a href="https://www.linkedin.com/in/cedric-sibaud/" target="_blank" rel="noopener noreferrer">Cédric Sibaud</a></p>
       </article>
 
-      <article class="job">
+      <article class="job job-cacf">
         <div class="job-heading">
           <h3><img class="entry-logo" src="assets/images/logos/credit-agricole-centre-france.png" alt="" aria-hidden="true">Crédit Agricole Centre France — Clermont-Ferrand (63)</h3>
           <p class="date">Depuis février 2023</p>
@@ -528,9 +573,12 @@
         <ul>
           <li>Faire évoluer des outils internes pour améliorer les performances et faciliter le travail des conseillers et des services du siège.</li>
           <li>Ajouter des fonctionnalités, réécrire un SDK et migrer des applications historiques vers une nouvelle stack.</li>
+          <li>Interfacer des systèmes et faire évoluer des flux de données dans un SI bancaire complexe (urbanisation, applications historiques, volumétrie), avec des exigences élevées de sécurité et des enjeux de dette technique.</li>
           <li>Développer principalement avec Symfony et Angular, avec livraison via GitLab CI/CD.</li>
         </ul>
         <p class="tech"><strong>Technologies et outils :</strong> Symfony, Angular, GitLab CI/CD.</p>
+        <p class="tech work-arrangement"><strong>Rythme de la mission :</strong> présentiel majoritaire · 1 jour de télétravail par semaine</p>
+        <p class="tech contact-links"><strong>Contacts :</strong> <a href="https://www.linkedin.com/in/renaldauvray/" target="_blank" rel="noopener noreferrer">Renald Auvray</a> · <a href="https://www.linkedin.com/in/yann-di-serio-b820098a/" target="_blank" rel="noopener noreferrer">Yann Di Serio</a> · <a href="https://www.linkedin.com/in/thierry-lacassagne-559bb815a/" target="_blank" rel="noopener noreferrer">Thierry Lacassagne</a></p>
       </article>
 
       <article class="job">
@@ -541,8 +589,10 @@
         <p class="job-title">Formateur en informatique · CDD</p>
         <ul>
           <li>Former des apprenants au titre professionnel Développeur web et web mobile, et les accompagner sur leurs projets.</li>
+          <li>Accompagner techniquement les apprenants, vulgariser les notions et guider le débogage de leurs projets.</li>
         </ul>
         <p class="tech"><strong>Technologies et outils :</strong> Symfony, PHP, SQL, Git/GitHub, HTML/CSS. <a href="https://github.com/Formation-DWWM-2022/formation_web">Supports DWWM 2022</a>.</p>
+        <p class="tech contact-links"><strong>Contact :</strong> <a href="https://www.linkedin.com/in/nicolas-amblard/" target="_blank" rel="noopener noreferrer">Nicolas Amblard</a></p>
       </article>
       <article class="job">
         <div class="job-heading">
@@ -555,6 +605,8 @@
           <li>Réaliser des fonctionnalités front-end et back-end, intégrer des API et corriger les anomalies.</li>
         </ul>
         <p class="tech"><strong>Technologies et outils :</strong> PHP, JavaScript, API web, SQL, Git, open source / Ubuntu.</p>
+        <p class="tech work-arrangement"><strong>Rythme chez Drosalys :</strong> 3 jours de télétravail par semaine</p>
+        <p class="tech contact-links"><strong>Contact :</strong> <a href="https://www.linkedin.com/in/nicolas-amblard/" target="_blank" rel="noopener noreferrer">Nicolas Amblard</a></p>
       </article>
     </section>
 
