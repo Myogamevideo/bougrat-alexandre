@@ -14,7 +14,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet">
-    <link href="assets/css/main.css?v=footer-modern-4" rel="stylesheet">
+    <link href="assets/css/main.css?v=remove-k8s-18" rel="stylesheet">
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
 </head>
 
@@ -119,27 +119,31 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <h2 class="ds-heading">Compétences clés</h2>
-                    <ul class="ds-skills-list">
-                        <li>Symfony / API Platform</li>
-                        <li>Doctrine / Redis</li>
-                        <li>PHP / Python / Node.js</li>
-                        <li>SQL / bases de données</li>
-                        <li>Tests unitaires et d’intégration</li>
-                        <li>Git / GitLab CI/CD</li>
-                        <li>Docker / Ubuntu / Shell</li>
-                    </ul>
+                    <div class="skills-panel">
+                        <h2 class="ds-heading">Compétences clés</h2>
+                        <ul class="ds-skills-list">
+                            <li>Symfony / API Platform</li>
+                            <li>Doctrine / Redis</li>
+                            <li>PHP / Python / Node.js</li>
+                            <li>SQL / bases de données</li>
+                            <li>Tests unitaires et d’intégration</li>
+                            <li>Git / GitLab CI/CD</li>
+                            <li>Docker / Ubuntu / Shell</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                    <h2 class="ds-heading">Front-end et autres outils</h2>
-                    <ul class="ds-skills-list">
-                        <li>TypeScript / Angular / Vue.js</li>
-                        <li>Twig / HTML / CSS / SCSS / Sass</li>
-                        <li>JavaScript / API web</li>
-                        <li>Git / GitHub</li>
-                        <li>WordPress / PrestaShop / Storyblok</li>
-                        <li>React / Vuetify / PWA</li>
-                    </ul>
+                    <div class="skills-panel">
+                        <h2 class="ds-heading">Front-end et autres outils</h2>
+                        <ul class="ds-skills-list">
+                            <li>TypeScript / Angular / Vue.js</li>
+                            <li>Twig / HTML / CSS / SCSS / Sass</li>
+                            <li>JavaScript / API web</li>
+                            <li>Git / GitHub</li>
+                            <li>WordPress / PrestaShop / Storyblok</li>
+                            <li>React / Vuetify / PWA</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="row infrastructure-row">
@@ -149,7 +153,6 @@
                         <li>Déploiements et administration de machines virtuelles sous Proxmox</li>
                         <li>Conception et exploitation d’architectures Docker</li>
                         <li>Administration Linux (Ubuntu) et réseaux locaux</li>
-                        <li>Home Assistant, automatisations via MQTT, capteurs et suivi de données énergétiques</li>
                         <li>Intégration continue avec GitLab CI/CD</li>
                     </ul>
                 </div>
@@ -203,9 +206,12 @@
                             <li>Faire évoluer des outils internes pour améliorer les performances et faciliter le travail des conseillers et des services du siège.</li>
                             <li>Ajouter des fonctionnalités, réécrire un SDK et migrer des applications historiques vers une nouvelle stack.</li>
                             <li>Interfacer des systèmes et faire évoluer des flux de données dans un SI bancaire complexe (urbanisation, applications historiques, volumétrie), avec des exigences élevées de sécurité et des enjeux de dette technique.</li>
+                            <li>Concevoir des API REST et des interfaces web, en prenant en charge les règles métier, les droits d’accès, les migrations de données, les exports, les PDF et les notifications.</li>
+                            <li>Moderniser des applications et des composants existants : évolution de SDK et de socles, migration de bases de données et de frameworks, correction de vulnérabilités et maintien de la compatibilité.</li>
+                            <li>Contribuer aux chaînes de livraison et aux déploiements avec GitLab CI/CD et Docker.</li>
                             <li>Développer principalement avec Symfony et Angular, avec livraison via GitLab CI/CD.</li>
                         </ul>
-                        <p class="ds-tech-list"><strong>Technologies et outils :</strong> Symfony · Angular · GitLab CI/CD · environnements de serveurs cloud</p>
+                        <p class="ds-tech-list"><strong>Technologies et outils :</strong> PHP · Symfony · API Platform · Doctrine · Angular · Vue.js · GitLab CI/CD · Docker · environnements de serveurs cloud</p>
                         <details class="entry-story">
                             <summary><span class="entry-story-open-label">En savoir plus</span><span class="entry-story-close-label">Masquer les détails</span><i class="ri-arrow-down-s-line" aria-hidden="true"></i></summary>
                             <div class="entry-story-content">
@@ -505,6 +511,161 @@
                     </div>
                 </article>
             </div>
+            <section class="iot-project" aria-labelledby="iot-project-heading">
+                <div class="iot-project-intro">
+                    <span class="project-type">Projet personnel · installation locale</span>
+                    <h3 id="iot-project-heading">Projets IoT &amp; Domotique</h3>
+                    <p>Architecture domotique déployée de bout en bout dans un environnement local : de l’hébergement des services et l’intégration des équipements jusqu’aux automatisations et au suivi des données.</p>
+                </div>
+                <div class="iot-architecture">
+                    <article class="iot-layer">
+                        <span class="iot-layer-index">01 · Infrastructure</span>
+                        <h4>Virtualisation &amp; conteneurs</h4>
+                        <p>Proxmox VE pour l’hébergement local des services, avec conteneurisation sous Docker.</p>
+                    </article>
+                    <article class="iot-layer">
+                        <span class="iot-layer-index">02 · Intégration</span>
+                        <h4>Équipements &amp; flux</h4>
+                        <p>Home Assistant, capteurs et passerelles matérielles Zigbee/Matter, avec gestion des flux MQTT.</p>
+                    </article>
+                    <article class="iot-layer">
+                        <span class="iot-layer-index">03 · Automatisation</span>
+                        <h4>Énergie &amp; confort thermique</h4>
+                        <p>Automatisation de l’autoconsommation solaire et pilotage thermique intégrant pompes à chaleur et chaudières.</p>
+                    </article>
+                    <article class="iot-layer">
+                        <span class="iot-layer-index">04 · Supervision</span>
+                        <h4>Données &amp; observabilité</h4>
+                        <p>Suivi des données énergétiques et tableaux de bord d’analyse avec Grafana et Loki.</p>
+                    </article>
+                </div>
+            </section>
+            <section class="mission-projects" aria-labelledby="mission-projects-heading">
+                <div class="mission-projects-intro">
+                    <span class="project-type">Crédit Agricole Centre France</span>
+                    <h3 id="mission-projects-heading">Exemples de réalisations</h3>
+                    <p>Ces exemples sont présentés sous des intitulés génériques afin de ne pas publier les noms des applications internes. Ouvre une fiche pour voir son descriptif et les technologies mentionnées.</p>
+                </div>
+                <div class="mission-summary" aria-labelledby="mission-summary-heading">
+                    <div class="mission-summary-lead">
+                        <span class="mission-summary-kicker">Résumé de mission</span>
+                        <h4 id="mission-summary-heading">Développeur full-stack en autonomie · février 2023–novembre 2026</h4>
+                        <p>Prise en charge de bout en bout de 18 applications internes du Crédit Agricole Centre France : analyse du besoin, développement, recette, mise en production et évolutions, dans un système d’information bancaire complexe.</p>
+                    </div>
+                    <div class="mission-summary-grid">
+                        <article class="mission-summary-card">
+                            <span class="mission-summary-label">Back-end &amp; données</span>
+                            <p>PHP, Symfony, API Platform et Doctrine : API REST, sécurité et rôles, imports/exports, PDF, notifications, migrations, reprises de données et statistiques.</p>
+                        </article>
+                        <article class="mission-summary-card">
+                            <span class="mission-summary-label">Front-end</span>
+                            <p>Applications Angular 19 à 21 et Vue.js / TypeScript ; interfaces adaptatives, accessibilité RGAA et migrations successives.</p>
+                        </article>
+                        <article class="mission-summary-card">
+                            <span class="mission-summary-label">Industrialisation, qualité &amp; maintenance</span>
+                            <p>Socles internes et SDK, Bootstrap, Silta, GitLab CI/CD, Docker et SonarQube ; recettes UAT, bugs/CVE, refactoring, migrations PHP 8, mises à jour de SDK et dépendances, documentation.</p>
+                        </article>
+                    </div>
+                </div>
+                <div class="mission-summary-metrics" aria-label="Volumétrie de la mission">
+                    <div class="mission-metric"><strong>≈ 4 450</strong><span>commits recensés</span></div>
+                    <div class="mission-metric"><strong>2 M+</strong><span>lignes ajoutées</span></div>
+                </div>
+                <details class="mission-project-disclosure">
+                    <summary><span class="mission-disclosure-title">Parcourir les 18 exemples</span><span class="mission-disclosure-hint">Réalisations anonymisées · descriptifs et technologies</span></summary>
+                    <div class="mission-project-grid">
+                    <article class="mission-project-card"><details>
+                        <summary><span class="mission-project-title">Réservation événementielle</span><span class="mission-project-period">Déc. 2024–nov. 2026</span></summary>
+                        <div class="mission-project-details"><p class="mission-project-volume"><strong>Volume recensé :</strong> 311 commits · ≈ 194 000 lignes ajoutées</p><p>Application de réservation d’espaces : planification, validation, statuts et e-mails. Conception et développement de l’API (193 commits) et du front-end (118 commits), conformité RGAA, migrations de base de données et migration Angular 21. Application suivie jusqu’à sa mise en production.</p><p class="mission-project-stack"><strong>Technologies :</strong> PHP, Symfony, API Platform, Doctrine, Redis, Docker, Angular 21, TypeScript, GitLab CI.</p></div>
+                    </details></article>
+
+                    <article class="mission-project-card"><details>
+                        <summary><span class="mission-project-title">Gestion des cautions et financements</span><span class="mission-project-period">Oct. 2025–sept. 2026</span></summary>
+                        <div class="mission-project-details"><p class="mission-project-volume"><strong>Volume recensé :</strong> 415 commits · ≈ 176 000 lignes ajoutées</p><p>Gestion de fiches de caution, de prospects, de montants de prêts et de financements multiples, avec génération de PDF. Reprise d’un back-end historique (99 commits) puis réécriture sur un socle interne : API (170 commits) et front Angular (146 commits), retours métier, migration Angular 21 et adaptation de la CI/CD pour les environnements de développement et UAT.</p><p class="mission-project-stack"><strong>Technologies :</strong> PHP, Symfony, API Platform, Doctrine, Redis, Docker, Angular 21, TypeScript, GitLab CI.</p></div>
+                    </details></article>
+
+                    <article class="mission-project-card"><details>
+                        <summary><span class="mission-project-title">Application d’assurance professionnelle</span><span class="mission-project-period">V1 + V2</span></summary>
+                        <div class="mission-project-details"><p class="mission-project-volume"><strong>Volume recensé :</strong> 609 commits (304 en V1 · 305 en V2) · ≈ 134 000 lignes ajoutées</p><p class="mission-project-period-detail"><strong>V1 :</strong> fév. 2023–oct. 2024 · <strong>V2 :</strong> nov. 2025–août 2026</p><p>Application d’assurance destinée aux collaborateurs. V1 en PHP / Vue.js : API de photos, recherches SQL, filtres de prescription et corrections de vulnérabilités. V2 sur un socle interne : API REST, notifications de rappel, statuts de graphiques, retours utilisateurs, corrections de recette (dont 192 commits) et refactoring.</p><p class="mission-project-stack"><strong>Technologies :</strong> PHP, Symfony, API Platform, Doctrine, Redis, Vue.js, JavaScript, Webpack, GitLab CI.</p></div>
+                    </details></article>
+
+                    <article class="mission-project-card"><details>
+                        <summary><span class="mission-project-title">Suivi d’activité agricole</span><span class="mission-project-period">Avr. 2025–août 2026</span></summary>
+                        <div class="mission-project-details"><p class="mission-project-volume"><strong>Volume recensé :</strong> 257 commits · ≈ 160 000 lignes ajoutées</p><p>Application de suivi des professionnels agricoles. Développement de l’API (156 commits) et du front Angular (101 commits), des statistiques, de téléchargements sécurisés par URL temporaire à jeton, de filtres et du suivi des assurés. Recette métier, mise à jour du SDK, migration Angular 21, mise à jour des dépendances et configuration des environnements.</p><p class="mission-project-stack"><strong>Technologies :</strong> PHP, Symfony, API Platform, Doctrine, Redis, Docker, Angular 21, TypeScript, GitLab CI.</p></div>
+                    </details></article>
+
+                    <article class="mission-project-card"><details>
+                        <summary><span class="mission-project-title">Pilotage des objectifs commerciaux</span><span class="mission-project-period">Fév. 2025–août 2026</span></summary>
+                        <div class="mission-project-details"><p class="mission-project-volume"><strong>Volume recensé :</strong> 255 commits · ≈ 71 000 lignes ajoutées</p><p>Application de gestion des objectifs commerciaux des points de vente. Développement des rôles et du fournisseur d’utilisateurs, de la gestion des campagnes et des confirmations, de la journalisation et des migrations. Mise en UAT, documentation technique, migrations Angular 20 et 21, mises à jour du SDK et ajustement des ressources PHP en production.</p><p class="mission-project-stack"><strong>Technologies :</strong> PHP, Symfony, API Platform, Doctrine, Redis, Docker, Angular, TypeScript, SCSS, GitLab CI.</p></div>
+                    </details></article>
+
+                    <article class="mission-project-card"><details>
+                        <summary><span class="mission-project-title">Réservation de créneaux de certification</span><span class="mission-project-period">Oct. 2024–août 2026</span></summary>
+                        <div class="mission-project-details"><p class="mission-project-volume"><strong>Volume recensé :</strong> 96 commits · ≈ 105 000 lignes ajoutées</p><p>Application de réservation de créneaux auprès d’analystes pour valider un dossier avant certification. Développement de l’API : création de créneaux, gestion des responsables par univers et fixtures ORM, ainsi que du front Angular et de son datepicker. Mises à jour du SDK, migrations Angular 20 puis 21 et corrections de recette.</p><p class="mission-project-stack"><strong>Technologies :</strong> PHP, Symfony, API Platform, Doctrine, Redis, Docker, Angular 21, TypeScript, SCSS, GitLab CI.</p></div>
+                    </details></article>
+
+                    <article class="mission-project-card"><details>
+                        <summary><span class="mission-project-title">Restitution d’indicateurs RSE</span><span class="mission-project-period">Fév. 2025–nov. 2026</span></summary>
+                        <div class="mission-project-details"><p class="mission-project-volume"><strong>Volume recensé :</strong> 92 commits · ≈ 112 000 lignes ajoutées</p><p>Application composée d’une API (38 commits) et d’un front Angular (54 commits) pour restituer des indicateurs RSE. Développement de graphiques, vues adaptatives, thème par défaut, pages d’accueil et migrations de base de données. Mises à jour du SDK, configuration des sessions PHP sous Docker et corrections de cache et de noms de fichiers.</p><p class="mission-project-stack"><strong>Technologies :</strong> PHP, Symfony, API Platform, Doctrine, Redis, Docker, Angular 20, TypeScript, SCSS, GitLab CI.</p></div>
+                    </details></article>
+
+                    <article class="mission-project-card"><details>
+                        <summary><span class="mission-project-title">Tableau de bord de suivi des risques</span><span class="mission-project-period">Juin–oct. 2026</span></summary>
+                        <div class="mission-project-details"><p class="mission-project-volume"><strong>Volume recensé :</strong> 61 commits · ≈ 150 000 lignes ajoutées</p><p>API de tableau de bord pour le suivi des risques. Développement de commandes et services d’import/export avec reprise d’une base existante, d’API de restitution et de règles métier ; évolution du socle applicatif et livraisons rapides.</p><p class="mission-project-stack"><strong>Technologies :</strong> PHP, Symfony, API Platform, Doctrine, Redis, Docker, GitLab CI.</p></div>
+                    </details></article>
+
+                    <article class="mission-project-card"><details>
+                        <summary><span class="mission-project-title">API de workflow documentaire</span><span class="mission-project-period">Mars–oct. 2026</span></summary>
+                        <div class="mission-project-details"><p class="mission-project-volume"><strong>Volume recensé :</strong> 53 commits · ≈ 103 000 lignes ajoutées</p><p>API de workflow alimentant des traitements automatisés. Développement de la génération et du dépôt de PDF, de l’envoi d’e-mails via le service interne de notification et du transfert de fichiers vers une plateforme documentaire. Traitement des alertes Sonar, nettoyage des dépendances et mises à jour du SDK.</p><p class="mission-project-stack"><strong>Technologies :</strong> PHP, Symfony, API Platform, Doctrine, Redis, Twig, Docker, GitLab CI.</p></div>
+                    </details></article>
+
+                    <article class="mission-project-card"><details>
+                        <summary><span class="mission-project-title">Back-office de trésorerie</span><span class="mission-project-period">Janv.–avr. 2026</span></summary>
+                        <div class="mission-project-details"><p class="mission-project-volume"><strong>Volume recensé :</strong> 184 commits · ≈ 63 000 lignes ajoutées</p><p>Back-office de suivi des souscriptions, documents, opérations et obligations. Initialisation du back-end (116 commits : sécurité, documents, utilisateurs, opérations, tests et documentation) et développement du front Angular (68 commits : formulaires, parcours de souscription et corrections de revue). Livraison complète en quatre mois.</p><p class="mission-project-stack"><strong>Technologies :</strong> PHP, Symfony, API Platform, Doctrine, Redis, Docker, Angular, TypeScript, GitLab CI.</p></div>
+                    </details></article>
+
+                    <article class="mission-project-card"><details>
+                        <summary><span class="mission-project-title">Plateforme de tutoriels</span><span class="mission-project-period">Mars 2025–nov. 2026</span></summary>
+                        <div class="mission-project-details"><p class="mission-project-volume"><strong>Volume recensé :</strong> 40 commits · ≈ 24 500 lignes ajoutées</p><p>Application de tutoriels avec administration, contenus et gestion de fichiers. Développement du back-end Symfony et du front Vue.js / TypeScript, mise à jour du socle applicatif et correction de l’installation.</p><p class="mission-project-stack"><strong>Technologies :</strong> PHP, Symfony, Doctrine, YAML, Vue.js, TypeScript, Node.js.</p></div>
+                    </details></article>
+
+                    <article class="mission-project-card"><details>
+                        <summary><span class="mission-project-title">Socle de démarrage back-end</span><span class="mission-project-period">Déc. 2024–août 2026</span></summary>
+                        <div class="mission-project-details"><p class="mission-project-volume"><strong>Volume recensé :</strong> 39 commits · ≈ 9 000 lignes ajoutées</p><p>Socle réutilisable pour démarrer des back-ends Symfony, API Platform et Doctrine, repris par plusieurs applications. Fiabilisation de PHPUnit et Xdebug, du fuseau horaire, du profiler, des consignes pour les agents de développement et des installations.</p><p class="mission-project-stack"><strong>Technologies :</strong> PHP, Symfony, API Platform, Doctrine, Composer, Shell, YAML.</p></div>
+                    </details></article>
+
+                    <article class="mission-project-card"><details>
+                        <summary><span class="mission-project-title">Parrainage de clients</span><span class="mission-project-period">Fév. 2023–avr. 2025</span></summary>
+                        <div class="mission-project-details"><p class="mission-project-volume"><strong>Volume recensé :</strong> 471 commits · ≈ 127 000 lignes ajoutées</p><p>Site de parrainage client avec contrôle de l’éligibilité des produits et suivi du parcours. Développement et maintenance de l’API PHP et de l’interface Vue.js, des fixtures, des e-mails et des liens documentaires ; changements graphiques et corrections de vulnérabilités de dépendances.</p><p class="mission-project-stack"><strong>Technologies :</strong> PHP, Slim, Symfony, Doctrine, Vue.js, JavaScript, SCSS, Webpack, Node.js.</p></div>
+                    </details></article>
+
+                    <article class="mission-project-card"><details>
+                        <summary><span class="mission-project-title">Visualisation des données commerciales d’agence</span><span class="mission-project-period">Nov. 2023–août 2025</span></summary>
+                        <div class="mission-project-details"><p class="mission-project-volume"><strong>Volume recensé :</strong> 318 commits · ≈ 97 000 lignes ajoutées</p><p>Application de visualisation de données commerciales d’agence, avec API Symfony et front Vue.js / TypeScript. Développement de la pagination, des imports, des légendes de catégories, de vues synthétiques et de réglages audio ; maintenance des données annuelles, correctifs et dépendances.</p><p class="mission-project-stack"><strong>Technologies :</strong> PHP, Symfony, API Platform, Doctrine, Vue.js, TypeScript, SCSS, Node.js.</p></div>
+                    </details></article>
+
+                    <article class="mission-project-card"><details>
+                        <summary><span class="mission-project-title">Gestion documentaire et évaluation des risques</span><span class="mission-project-period">Fév. 2023–mai 2025</span></summary>
+                        <div class="mission-project-details"><p class="mission-project-volume"><strong>Volume recensé :</strong> 852 commits · ≈ 605 000 lignes, socles inclus</p><p>Application d’évaluation des risques avec API Symfony et front Vue.js. Développement des règles et de leur évaluation, des entités de niveaux et de classement, des DTO, d’appels à des services externes, de l’impression PDF et de correctifs. Les historiques des bases réutilisées contribuent fortement au volume de lignes recensé.</p><p class="mission-project-stack"><strong>Technologies :</strong> PHP, Symfony, API Platform, Doctrine, Express, Vue.js, TypeScript, SCSS, Node.js.</p></div>
+                    </details></article>
+
+                    <article class="mission-project-card"><details>
+                        <summary><span class="mission-project-title">Gestion de campagnes de communication</span><span class="mission-project-period">Nov. 2023–août 2025</span></summary>
+                        <div class="mission-project-details"><p class="mission-project-volume"><strong>Volume recensé :</strong> 161 commits · ≈ 28 000 lignes ajoutées</p><p>Outil de saisie, centralisation et validation des campagnes de communication client. Développement des statistiques et exports, de la récurrence, des qualifiants, des e-mails, des traductions automatiques, de la journalisation et des canaux.</p><p class="mission-project-stack"><strong>Technologies :</strong> PHP, Symfony, API Platform, Doctrine, Express, Vue.js, TypeScript, SCSS, Node.js.</p></div>
+                    </details></article>
+
+                    <article class="mission-project-card"><details>
+                        <summary><span class="mission-project-title">Gestion de dotations et récompenses</span><span class="mission-project-period">Fév. 2023–juil. 2025</span></summary>
+                        <div class="mission-project-details"><p class="mission-project-volume"><strong>Volume recensé :</strong> 142 commits · ≈ 70 000 lignes ajoutées</p><p>Application avec site public et interface de gestion, reprise à partir de février 2023. Développement des imports, d’une API de photos et des e-mails ; mise à niveau vers PHP 8.2 et corrections de vulnérabilités dans les dépendances front-end.</p><p class="mission-project-stack"><strong>Technologies :</strong> PHP 8.2, Slim, Doctrine, Vue.js, JavaScript, SCSS, SQL, Composer, Guzzle.</p></div>
+                    </details></article>
+
+                    <article class="mission-project-card"><details>
+                        <summary><span class="mission-project-title">Agrégation de données entre systèmes</span><span class="mission-project-period">Fév. 2023–oct. 2024</span></summary>
+                        <div class="mission-project-details"><p class="mission-project-volume"><strong>Volume recensé :</strong> 89 commits · ≈ 44 000 lignes ajoutées</p><p>Outil d’agrégation de données issues de plusieurs bases, côté Internet et au sein du système d’information. Reprise et migration de l’application, refactoring des formulaires pour PHP 8, corrections de routage, adaptation de l’intégration aux bases et mise à jour de Composer.</p><p class="mission-project-stack"><strong>Technologies :</strong> PHP 8, Slim, Doctrine, SCSS, Composer.</p></div>
+                    </details></article>
+                    </div>
+                </details>
+            </section>
             <!-- <div class="ds-work-list-section">
                 <div class="ds-work-list">
                     <div class="row">

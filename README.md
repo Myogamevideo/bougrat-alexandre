@@ -1,14 +1,18 @@
 # Portfolio d'Alexandre Bougrat
 
-Portfolio personnel et CV en français, réalisés en HTML, CSS et JavaScript. Le site présente le parcours professionnel, les formations, les projets publics et la pratique quotidienne d'assistants IA pour le développement logiciel.
+Portfolio personnel et CV en français, réalisés en HTML, CSS et JavaScript. Le site présente le parcours professionnel, 18 réalisations anonymisées de la mission au Crédit Agricole Centre France, des projets publics et personnels, ainsi que l’usage quotidien d’assistants IA pour le développement logiciel.
 
 ## Contenu
 
-- `index.html` : portfolio, expériences, formations, projets et contact.
+- `index.html` : portfolio, expériences, formations, projets, réalisations anonymisées de la mission CACF et contact.
 - `cv.html` : CV imprimable avec bouton de téléchargement.
 - `assets/css/main.css` et `assets/js/` : styles et interactions.
 - `assets/images/` : portrait, favicon et logos des organismes.
 - `assets/pdf/BOUGRAT Alexandre CV.pdf` : CV PDF au format A4, conçu pour tenir sur une page.
+
+Les réalisations CACF sont regroupées dans un panneau repliable, avec leurs périodes, volumes recensés et descriptions techniques. Les intitulés et détails sont formulés pour ne pas publier les noms des applications internes.
+
+Les projets personnels incluent une installation de domotique et de suivi énergétique autour de Proxmox, Docker, Home Assistant, MQTT, Grafana et Loki.
 
 ## Lancer le site
 
@@ -48,4 +52,4 @@ pdfinfo "assets/pdf/BOUGRAT Alexandre CV.pdf"
 - Vérifier le portfolio et le CV dans un navigateur sur ordinateur et mobile.
 - Vérifier que le PDF tient sur une seule page A4 après une modification du CV.
 
-Les expériences et informations personnelles sont présentées à partir des informations fournies par Alexandre. Vérifier les détails et technologies avant publication, notamment ceux qui ne sont pas explicitement confirmés.
+Les expériences, périodes, volumes et informations personnelles sont présentés à partir des informations fournies par Alexandre. Vérifier les détails et technologies avant publication, notamment ceux qui ne sont pas explicitement confirmés.
