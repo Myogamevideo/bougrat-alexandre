@@ -1,674 +1,325 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="CV d'Alexandre Bougrat, développeur back-end à Clermont-Ferrand (63).">
-  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-  <title>CV — Alexandre Bougrat, développeur back-end</title>
-  <style>
-    :root {
-      color-scheme: light;
-      --ink: #172b3b;
-      --body: #344756;
-      --muted: #647483;
-      --accent: #a53d32;
-      --rule: #dce4e8;
-      --soft: #f3f6f7;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CV — Alexandre Bougrat</title>
+<style>
+  @page { size: A4 portrait; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: "Segoe UI", Inter, system-ui, -apple-system, sans-serif;
+    color: #16232e; background: #64748b; line-height: 1.2; font-size: 11.2px;
+  }
+  .page {
+    width: 210mm; min-height: 297mm; margin: 0 auto; background: #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,.25);
+    display: flex; flex-direction: column;
+  }
+  /* ---------- Header ---------- */
+  header {
+    background: linear-gradient(135deg, #12303f 0%, #0e7490 100%);
+    color: #fff; padding: 3.5mm 10mm 3.2mm; display: flex; gap: 7mm; align-items: center;
+  }
+  .h-text { flex: 1; }
+  header h1 { font-size: 21px; letter-spacing: .4px; }
+  header .job { font-size: 12.5px; font-weight: 600; opacity: .92; margin: 1px 0 5px; }
+  header .meta { display: flex; flex-wrap: wrap; gap: 2px 12px; font-size: 10.5px; }
+  header .meta span, header .meta a { color: #d8f1f8; text-decoration: none; }
+  header .chips { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 5px; }
+  header .chip {
+    background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.28);
+    padding: 1px 7px; border-radius: 999px; font-size: 10px; font-weight: 600;
+  }
+  .photo {
+    width: 21mm; height: 26mm; border-radius: 2.5mm; object-fit: cover;
+    border: 2px solid rgba(255,255,255,.55); flex: none;
+  }
+  /* ---------- Layout ---------- */
+  .cols { display: grid; grid-template-columns: 1fr 60mm; flex: 1; }
+  .main { padding: 3.5mm 5mm 3mm 10mm; }
+  aside { padding: 3.5mm 10mm 3mm 0; }
+  /* ---------- Sections ---------- */
+  section { margin-bottom: 2.4mm; }
+  h2 {
+    font-size: 10.8px; text-transform: uppercase; letter-spacing: 1.3px;
+    color: #0e7490; margin-bottom: 2mm; display: flex; align-items: center; gap: 7px;
+  }
+  h2::after { content: ""; flex: 1; height: 1px; background: #dce4ea; }
+  .profile { font-size: 11.6px; color: #2c3b47; text-align: justify; }
+  /* ---------- Experience ---------- */
+  .xp { margin-bottom: 2mm; }
+  .xp-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .xp-head h3 { font-size: 12.5px; }
+  .xp-head .dates { font-size: 10.5px; color: #5b6b78; white-space: nowrap; font-weight: 700; }
+  .xp .role { font-size: 11.3px; font-weight: 600; color: #0e7490; margin: 1px 0 3px; }
+  .xp ul { padding-left: 13px; }
+  .xp li { margin-bottom: .5px; font-size: 11px; }
+  .tagline { font-size: 10.2px; color: #5b6b78; margin-top: 2px; }
+  .tagline b { color: #374a58; font-weight: 600; }
+  .feat { margin-bottom: 1.3mm; }
+  .feat-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .feat-head h3 { font-size: 11.6px; }
+  .feat-head span { font-size: 10px; color: #5b6b78; font-weight: 700; white-space: nowrap; }
+  .feat p { font-size: 10.8px; color: #2c3b47; }
+  .feat .vols { font-size: 10px; color: #0e7490; font-weight: 600; white-space: nowrap; }
+  .note { font-size: 9.8px; color: #5b6b78; font-style: italic; margin: -.5mm 0 1.6mm; }
+  .figures { font-size: 10.6px; color: #374a58; margin: -.5mm 0 1.8mm; padding: 1mm 2mm; background: #eef7fa; border-left: 2px solid #0e7490; border-radius: 0 3px 3px 0; }
+  .figures b { color: #0b5468; }
+  /* ---------- Sidebar ---------- */
+  aside h2 { color: #16232e; }
+  aside h2::before {
+    content: ""; width: 6px; height: 6px; border-radius: 2px; background: #0e7490; flex: none;
+  }
+  .skill-block { margin-bottom: 1.8mm; }
+  .skill-block .label {
+    font-size: 10px; font-weight: 700; color: #5b6b78;
+    text-transform: uppercase; letter-spacing: .5px; margin-bottom: 3px;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 3px; }
+  .tag { background: #e0f2f7; color: #0b5468; padding: 1px 6px; border-radius: 4px; font-size: 10.3px; font-weight: 600; }
+  .tag-soft { background: #eef1f4; color: #4a5a67; }
+  .lang { display: flex; justify-content: space-between; font-size: 11.3px; margin-bottom: 2px; }
+  .lang span:last-child { color: #5b6b78; }
+  .edu { margin-bottom: 1.5mm; }
+  .edu h3 { font-size: 11.4px; }
+  .edu p { font-size: 10.5px; color: #5b6b78; }
+  .projs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.6mm 4mm; }
+  .proj { margin-bottom: 0; }
+  .proj h3 { font-size: 11.4px; }
+  .proj p { font-size: 10.5px; color: #5b6b78; }
+  .soft { font-size: 10.8px; color: #2c3b47; }
+  /* ---------- Footer band ---------- */
+  .band {
+    margin: 0 10mm; border-top: 1px solid #dce4ea; padding: 2mm 0 3.5mm;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5mm;
+  }
+  .band h2 { margin-bottom: 2mm; font-size: 10.5px; }
+  .band .b-item { font-size: 10.8px; color: #2c3b47; }
+  .band .b-item li { margin-bottom: 1px; }
+  .band .b-item ul { padding-left: 13px; }
+  .band .b-label { font-size: 9.8px; font-weight: 700; color: #5b6b78; text-transform: uppercase; letter-spacing: .4px; }
+  /* ---------- Print ---------- */
+  @media print {
+    html, body { background: #fff; margin: 0; padding: 0; }
+    .page {
+      margin: 0; box-shadow: none; width: 210mm;
+      height: 296mm; min-height: 0; overflow: hidden;
+      break-after: avoid; break-inside: avoid;
     }
-
-    @page {
-      size: A4;
-      margin: 9mm 11mm;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      background: #e9eef0;
-    }
-
-    body {
-      max-width: 180mm;
-      margin: 24px auto;
-      padding: 14mm 15mm;
-      color: var(--body);
-      background: #fff;
-      box-shadow: 0 16px 48px rgba(23, 43, 59, 0.12);
-      font: 9.5pt/1.42 Arial, Helvetica, sans-serif;
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-    }
-
-    h1, h2, h3, p {
-      margin: 0;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .cv-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding-bottom: 12px;
-      border-bottom: 3px solid var(--accent);
-    }
-
-    .cv-header-content {
-      min-width: 0;
-    }
-
-    .profile-photo {
-      width: 30mm;
-      height: 30mm;
-      flex: 0 0 30mm;
-      border: 2px solid var(--rule);
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center 35%;
-    }
-
-    .eyebrow {
-      color: var(--accent);
-      font-size: 8pt;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin-top: 3px;
-      color: var(--ink);
-      font-size: 27pt;
-      font-weight: 700;
-      letter-spacing: -0.035em;
-      line-height: 1.08;
-    }
-
-    .role {
-      margin-top: 4px;
-      color: var(--accent);
-      font-size: 13pt;
-      font-weight: 700;
-    }
-
-    .contact {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 3px 14px;
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 8.5pt;
-    }
-
-    .contact span,
-    .contact a {
-      overflow-wrap: anywhere;
-    }
-
-    .download-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 11px;
-      padding: 9px 13px;
-      border: 1px solid var(--accent);
-      border-radius: 8px;
-      color: #fff;
-      background: var(--accent);
-      font-size: 8.5pt;
-      font-weight: 700;
-    }
-
-    .download-link:hover {
-      color: #fff;
-      background: var(--ink);
-      border-color: var(--ink);
-    }
-
-    .download-link svg {
-      width: 15px;
-      height: 15px;
-      fill: currentColor;
-    }
-
-    section {
-      margin-top: 15px;
-    }
-
-    h2 {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      margin-bottom: 7px;
-      color: var(--ink);
-      font-size: 10pt;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    h2::after {
-      height: 1px;
-      flex: 1;
-      background: var(--rule);
-      content: "";
-    }
-
-    .profile {
-      color: var(--body);
-      font-size: 10pt;
-      line-height: 1.5;
-    }
-
-    .cv-profile {
-      padding: 11px 13px;
-      border-left: 3px solid var(--accent);
-      border-radius: 0 8px 8px 0;
-      background: #f8f4f2;
-    }
-
-    .skills {
-      display: grid;
-      gap: 4px;
-    }
-
-    .skill-line {
-      color: var(--body);
-    }
-
-    .skill-line strong {
-      color: var(--ink);
-    }
-
-    .skill-infrastructure {
-      padding: 7px 9px;
-      border: 1px solid #d9e3e8;
-      border-left: 3px solid #3f7188;
-      border-radius: 6px;
-      background: #f2f7f9;
-    }
-
-    .skill-infrastructure strong {
-      color: #315d70;
-    }
-
-    .job {
-      margin-top: 10px;
-      break-inside: avoid;
-    }
-
-    .job + .job {
-      padding-top: 9px;
-      border-top: 1px solid var(--rule);
-    }
-
-    .job-cacf {
-      padding: 9px 12px 10px;
-      border-left: 3px solid var(--accent);
-      border-radius: 0 8px 8px 0;
-      background: #fbf7f5;
-    }
-
-    .job-heading {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .job-heading h3 {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .entry-logo {
-      width: 25px;
-      height: 20px;
-      flex: 0 0 25px;
-      padding: 1px;
-      border: 1px solid var(--rule);
-      border-radius: 5px;
-      background: #fff;
-      object-fit: contain;
-    }
-
-    h3 {
-      color: var(--ink);
-      font-size: 10.2pt;
-      line-height: 1.3;
-    }
-
-    .date {
-      flex: 0 0 auto;
-      color: var(--muted);
-      font-size: 8.5pt;
-      text-align: right;
-    }
-
-    .job-title {
-      margin-top: 2px;
-      color: var(--accent);
-      font-size: 9pt;
-      font-weight: 700;
-    }
-
-    ul {
-      margin: 5px 0 0;
-      padding-left: 16px;
-    }
-
-    li {
-      margin: 2px 0;
-      padding-left: 1px;
-    }
-
-    .tech {
-      margin-top: 5px;
-      color: var(--muted);
-      font-size: 8.5pt;
-    }
-
-    .tech strong {
-      color: var(--ink);
-    }
-
-    .education-entry {
-      margin-top: 8px;
-      break-inside: avoid;
-    }
-
-    .education-entry p {
-      margin-top: 2px;
-    }
-
-    .education-meta {
-      color: var(--muted);
-      font-size: 8.8pt;
-    }
-
-    .languages {
-      color: var(--body);
-    }
-
-    @media screen {
-      body {
-        min-height: 297mm;
-      }
-    }
-
-    @media print {
-      @page {
-        size: A4;
-        margin: 9mm 11mm;
-      }
-
-      html {
-        background: #fff;
-      }
-
-      body {
-        max-width: none;
-        margin: 0;
-        padding: 0;
-        box-shadow: none;
-        color: #263745;
-        font-size: 8.8pt;
-        line-height: 1.12;
-      }
-
-      main {
-        display: grid;
-        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-        column-gap: 6mm;
-        align-items: start;
-      }
-
-      main > section {
-        min-width: 0;
-        margin-top: 3px;
-      }
-
-      .cv-experience,
-      .cv-languages {
-        grid-column: 1 / -1;
-      }
-
-      .cv-header {
-        gap: 10px;
-        padding-bottom: 7px;
-        border-bottom-width: 2px;
-      }
-
-      .profile-photo {
-        display: block;
-        width: 23mm;
-        height: 23mm;
-        flex-basis: 23mm;
-      }
-
-      .eyebrow {
-        font-size: 8.5pt;
-        letter-spacing: normal;
-        text-transform: none;
-      }
-
-      h1 {
-        margin-top: 1px;
-        font-size: 23pt;
-      }
-
-      .role {
-        margin-top: 1px;
-        font-size: 12pt;
-      }
-
-      .contact {
-        gap: 2px 11px;
-        margin-top: 5px;
-        font-size: 8.3pt;
-      }
-
-      .download-link {
-        display: none;
-      }
-
-      h2 {
-        gap: 5px;
-        margin-bottom: 3px;
-        font-size: 9.4pt;
-      }
-
-      .profile {
-        font-size: 9pt;
-        line-height: 1.12;
-      }
-
-      .cv-profile {
-        padding: 6px 9px;
-      }
-
-      .skills {
-        gap: 2px;
-      }
-
-      .job {
-        margin-top: 3px;
-      }
-
-      .job + .job {
-        padding-top: 3px;
-      }
-
-      .job-cacf {
-        padding: 5px 8px 6px;
-      }
-
-      h3 {
-        font-size: 10pt;
-      }
-
-      .entry-logo {
-        display: none;
-      }
-
-      .date {
-        font-size: 8.7pt;
-      }
-
-      .job-title {
-        margin-top: 0;
-        font-size: 9pt;
-      }
-
-      ul {
-        margin-top: 2px;
-        padding-left: 14px;
-      }
-
-      li {
-        margin: 1px 0;
-        padding-left: 0;
-      }
-
-      .tech {
-        margin-top: 2px;
-        font-size: 8.2pt;
-      }
-
-      .contact-links {
-        font-size: 8pt;
-      }
-
-      .work-arrangement {
-        font-size: 8pt;
-      }
-
-      .education-entry {
-        margin-top: 3px;
-      }
-
-      .education-entry p {
-        margin-top: 1px;
-        font-size: 8.3pt;
-        line-height: 1.1;
-      }
-
-      .education-meta {
-        font-size: 9pt;
-      }
-
-      .cv-projects .education-entry p {
-        line-height: 1.2;
-      }
-
-      a {
-        text-decoration: none;
-      }
-    }
-
-    @media (max-width: 600px) {
-      body {
-        margin: 0;
-        padding: 28px 22px;
-        box-shadow: none;
-      }
-
-      .cv-header {
-        align-items: flex-start;
-        gap: 12px;
-      }
-
-      .profile-photo {
-        width: 22mm;
-        height: 22mm;
-        flex-basis: 22mm;
-      }
-
-      h1 {
-        font-size: 25pt;
-      }
-
-      .job-heading {
-        display: block;
-      }
-
-      .date {
-        display: block;
-        margin-top: 2px;
-        text-align: left;
-      }
-    }
-  </style>
+    header, .xp, .feat, .edu, .proj { break-inside: avoid; }
+    h2 { break-after: avoid; }
+    a { color: inherit; text-decoration: none; }
+  }
+</style>
 </head>
 <body>
-  <header class="cv-header">
-    <div class="cv-header-content">
-      <p class="eyebrow">Curriculum vitae</p>
+<div class="page">
+
+  <header>
+    <div class="h-text">
       <h1>Alexandre Bougrat</h1>
-      <p class="role">Développeur back-end confirmé · Symfony · Full-stack</p>
-      <div class="contact">
+      <div class="job">Développeur back-end confirmé · Symfony · Full-stack</div>
+      <div class="meta">
         <span>Clermont-Ferrand (63)</span>
-        <a href="tel:+33763013381">07 63 01 33 81</a>
+        <span>07 63 01 33 81</span>
         <a href="mailto:alexandre.bougrat@hotmail.fr">alexandre.bougrat@hotmail.fr</a>
-        <a href="https://github.com/Myogamevideo">GitHub : Myogamevideo</a>
-        <a href="https://www.linkedin.com/in/alexandrebougrat/">LinkedIn : alexandrebougrat</a>
       </div>
-      <a class="download-link" href="./assets/pdf/BOUGRAT Alexandre CV.pdf" download>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/></svg>
-        Télécharger le CV en PDF
-      </a>
+      <div class="meta" style="margin-top:1px">
+        <a href="https://myogamevideo.github.io/bougrat-alexandre/">myogamevideo.github.io/bougrat-alexandre</a>
+        <a href="https://github.com/Myogamevideo">github.com/Myogamevideo</a>
+        <a href="https://www.linkedin.com/in/alexandrebougrat">linkedin.com/in/alexandrebougrat</a>
+      </div>
+      <div class="chips">
+        <span class="chip">6+ ans d'expérience</span>
+        <span class="chip">Symfony · API Platform</span>
+        <span class="chip">SI bancaire</span>
+        <span class="chip">À l'écoute d'opportunités back-end / full-stack</span>
+      </div>
     </div>
-    <img class="profile-photo" src="assets/images/linkedin-profile.jpg" alt="Photo de profil d'Alexandre Bougrat">
+    <img class="photo" alt="Photo d'Alexandre Bougrat" src="data:image/jpeg;base64,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" />
   </header>
 
-  <main>
-    <section class="cv-profile" aria-labelledby="profile-heading">
-      <h2 id="profile-heading">Profil</h2>
-      <p class="profile">Développeur back-end confirmé à Clermont-Ferrand, avec plus de 6 ans d’expérience en développement web, je fais évoluer depuis février 2023 des outils internes au sein du SI du Crédit Agricole Centre France : interfaçage avec des systèmes complexes, flux de données et modernisation d'applications historiques. Je recherche un poste back-end, de préférence avec Symfony, ou full-stack. Mes expériences en TPE/PME complètent ce parcours par une pratique polyvalente du développement web.</p>
-    </section>
+  <div class="cols">
+    <div class="main">
 
-    <section class="cv-skills" aria-labelledby="skills-heading">
-      <h2 id="skills-heading">Compétences</h2>
-      <div class="skills">
-        <p class="skill-line"><strong>Back-end :</strong> PHP, Symfony, API Platform, Doctrine, Python, Node.js</p>
-        <p class="skill-line"><strong>API et données :</strong> API web, SQL, bases de données, Redis</p>
-        <p class="skill-line"><strong>Front-end :</strong> TypeScript, Angular, Vue.js, Twig, JavaScript, HTML/CSS, SCSS/Sass</p>
-        <p class="skill-line skill-infrastructure"><strong>Infrastructure, Réseau &amp; Environnement :</strong> Proxmox VE, Docker, administration Linux (Ubuntu), GitLab CI/CD, Shell, réseaux locaux</p>
-        <p class="skill-line"><strong>Méthode &amp; qualité :</strong> Agile, Git, tests unitaires et d'intégration</p>
-        <p class="skill-line"><strong>Assistants de développement :</strong> Claude et GitHub Copilot</p>
-      </div>
-    </section>
+      <section>
+        <h2>Profil</h2>
+        <p class="profile">
+          Développeur back-end confirmé, <strong>6+ ans d'expérience</strong>. De février 2023 à novembre 2026,
+          j'ai fait évoluer des outils internes d'un SI bancaire (Crédit Agricole Centre France) : interfaçage de
+          systèmes, flux de données, modernisation d'applications historiques, exigences de sécurité.
+          Je recherche un poste back-end (Symfony) ou full-stack.
+        </p>
+      </section>
 
-    <section class="cv-experience" aria-labelledby="experience-heading">
-      <h2 id="experience-heading">Expérience professionnelle</h2>
+      <section>
+        <h2>Expérience professionnelle</h2>
 
-      <article class="job">
-        <div class="job-heading">
-          <h3><img class="entry-logo" src="assets/images/logos/openstudio.png" alt="" aria-hidden="true">OpenStudio — Clermont-Ferrand (63)</h3>
-          <p class="date">Depuis janvier 2023</p>
+        <div class="xp">
+          <div class="xp-head">
+            <h3>OpenStudio → Crédit Agricole Centre France</h3>
+            <span class="dates">mission fév. 2023 – nov. 2026</span>
+          </div>
+          <div class="role">Développeur back-end · CDI OpenStudio (janv. 2023) · Régie — Clermont-Ferrand</div>
+          <ul>
+            <li>Prise en charge de bout en bout de <strong>18 applications internes</strong> : analyse du besoin, développement, recette UAT, mise en production et évolutions.</li>
+            <li>Conception d'API REST et d'interfaces web : règles métier, sécurité et rôles, imports/exports, PDF, notifications, migrations et reprises de données.</li>
+            <li>Modernisation d'applications et de socles internes : réécriture de SDK, migrations PHP 8 et Angular 19→21, correction de bugs et vulnérabilités, refactoring.</li>
+            <li>Interfaçage de systèmes et de flux de données dans un SI d'entreprise complexe (applications historiques, volumétrie, dette technique), accessibilité RGAA.</li>
+          </ul>
+          <p class="tagline"><b>Stack :</b> PHP · Symfony · API Platform · Doctrine · Redis · Angular 21 · TypeScript · Vue.js · Bootstrap · GitLab CI/CD · Docker · PHPUnit · SonarQube</p>
         </div>
-        <p class="job-title">Développeur back-end · CDI · Mission en régie au Crédit Agricole Centre France</p>
-        <ul>
-          <li>Mission en régie à temps plein au Crédit Agricole Centre France depuis février 2023.</li>
-        </ul>
-        <p class="tech"><strong>Vie d'entreprise :</strong> séminaires, TousàOS, football et formations continues.</p>
-        <p class="tech work-arrangement"><strong>Rythme chez OpenStudio :</strong> 3 jours de télétravail par semaine</p>
-        <p class="tech contact-links"><strong>Contact :</strong> <a href="https://www.linkedin.com/in/cedric-sibaud/" target="_blank" rel="noopener noreferrer">Cédric Sibaud</a></p>
-      </article>
 
-      <article class="job job-cacf">
-        <div class="job-heading">
-          <h3><img class="entry-logo" src="assets/images/logos/credit-agricole-centre-france.png" alt="" aria-hidden="true">Crédit Agricole Centre France — Clermont-Ferrand (63)</h3>
-          <p class="date">Depuis février 2023</p>
+        <div class="xp">
+          <div class="xp-head">
+            <h3>IFPA — Miribel (01)</h3>
+            <span class="dates">juil. 2022 – déc. 2022</span>
+          </div>
+          <div class="role">Formateur en informatique · CDD</div>
+          <ul>
+            <li>Préparation et animation des cours du titre professionnel Développeur web et web mobile : Symfony, PHP, SQL, Git, HTML/CSS, API, sécurité web.</li>
+            <li>Accompagnement des apprenants : conception, débogage, ressources partagées sur GitHub.</li>
+            <li>Vulgarisation des notions techniques selon le niveau de chacun (algorithmique, POO).</li>
+          </ul>
+          <p class="tagline"><b>Stack :</b> Symfony · PHP · SQL · Git/GitHub · HTML/CSS</p>
         </div>
-        <p class="job-title">Mission en régie · Développeur back-end · 100 % chez le client</p>
-        <ul>
-          <li>Faire évoluer des outils internes pour améliorer les performances et faciliter le travail des conseillers et des services du siège.</li>
-          <li>Ajouter des fonctionnalités, réécrire un SDK et migrer des applications historiques vers une nouvelle stack.</li>
-          <li>Interfacer des systèmes et faire évoluer des flux de données dans un SI bancaire complexe (urbanisation, applications historiques, volumétrie), avec des exigences élevées de sécurité et des enjeux de dette technique.</li>
-          <li>Développer principalement avec Symfony et Angular, avec livraison via GitLab CI/CD.</li>
-        </ul>
-        <p class="tech"><strong>Technologies et outils :</strong> Symfony, Angular, GitLab CI/CD.</p>
-        <p class="tech work-arrangement"><strong>Rythme de la mission :</strong> présentiel majoritaire · 1 jour de télétravail par semaine</p>
-        <p class="tech contact-links"><strong>Contacts :</strong> <a href="https://www.linkedin.com/in/renaldauvray/" target="_blank" rel="noopener noreferrer">Renald Auvray</a> · <a href="https://www.linkedin.com/in/yann-di-serio-b820098a/" target="_blank" rel="noopener noreferrer">Yann Di Serio</a> · <a href="https://www.linkedin.com/in/thierry-lacassagne-559bb815a/" target="_blank" rel="noopener noreferrer">Thierry Lacassagne</a></p>
-      </article>
 
-      <article class="job">
-        <div class="job-heading">
-          <h3><img class="entry-logo" src="assets/images/logos/ifpa.png" alt="" aria-hidden="true">IFPA — Miribel (01)</h3>
-          <p class="date">Juillet 2022 – décembre 2022</p>
+        <div class="xp">
+          <div class="xp-head">
+            <h3>Drosalys — Clermont-Ferrand</h3>
+            <span class="dates">avr. 2020 – déc. 2022</span>
+          </div>
+          <div class="role">Développeur web puis full-stack · stage, alternance et CDD</div>
+          <ul>
+            <li>Développement, tests et livraison de sites vitrines et e-commerce (WordPress, PrestaShop) pour des clients TPE/PME, en open source sous Ubuntu.</li>
+            <li>Réalisation de fonctionnalités front-end et back-end, intégration d'API et correction d'anomalies, de la demande à la mise en ligne.</li>
+            <li>Analyse des besoins et cycle complet des projets (alternance 2020–21, CDD 2021–22).</li>
+          </ul>
+          <p class="tagline"><b>Stack :</b> WordPress · PrestaShop · PHP · JavaScript · SQL · Git · Ubuntu</p>
         </div>
-        <p class="job-title">Formateur en informatique · CDD</p>
-        <ul>
-          <li>Former des apprenants au titre professionnel Développeur web et web mobile, et les accompagner sur leurs projets.</li>
-          <li>Accompagner techniquement les apprenants, vulgariser les notions et guider le débogage de leurs projets.</li>
-        </ul>
-        <p class="tech"><strong>Technologies et outils :</strong> Symfony, PHP, SQL, Git/GitHub, HTML/CSS. <a href="https://github.com/Formation-DWWM-2022/formation_web">Supports DWWM 2022</a>.</p>
-        <p class="tech contact-links"><strong>Contact :</strong> <a href="https://www.linkedin.com/in/nicolas-amblard/" target="_blank" rel="noopener noreferrer">Nicolas Amblard</a></p>
-      </article>
-      <article class="job">
-        <div class="job-heading">
-          <h3><img class="entry-logo" src="assets/images/logos/drosalys.png" alt="" aria-hidden="true">Drosalys — Clermont-Ferrand (63)</h3>
-          <p class="date">2020–2022</p>
-        </div>
-        <p class="job-title">Développeur web puis full-stack · stage, alternance et CDD</p>
-        <ul>
-          <li>Développer, tester et livrer des sites vitrines et e-commerce pour des clients TPE/PME.</li>
-          <li>Réaliser des fonctionnalités front-end et back-end, intégrer des API et corriger les anomalies.</li>
-        </ul>
-        <p class="tech"><strong>Technologies et outils :</strong> PHP, JavaScript, API web, SQL, Git, open source / Ubuntu.</p>
-        <p class="tech work-arrangement"><strong>Rythme chez Drosalys :</strong> 3 jours de télétravail par semaine</p>
-        <p class="tech contact-links"><strong>Contact :</strong> <a href="https://www.linkedin.com/in/nicolas-amblard/" target="_blank" rel="noopener noreferrer">Nicolas Amblard</a></p>
-      </article>
-    </section>
+      </section>
 
-    <section class="cv-projects" aria-labelledby="projects-heading">
-      <h2 id="projects-heading">Projets personnels</h2>
-      <article class="education-entry">
-        <div class="job-heading">
-          <h3><strong><a href="https://myogamevideo.github.io/real-estate-tracker/">Maison &amp; Marché</a></strong></h3>
-          <p class="date">2026</p>
-        </div>
-        <p>Tableau de bord immobilier autour d'une adresse française, avec ventes DVF et données publiques · JavaScript.</p>
-      </article>
-      <article class="education-entry">
-        <div class="job-heading">
-          <h3><strong><a href="https://myogamevideo.github.io/budget-couple/">Clair — Budget du foyer</a></strong></h3>
-          <p class="date">2026</p>
-        </div>
-        <p>Tableau de bord d'analyse de classeurs Excel, avec traitement local des données dans le navigateur · JavaScript.</p>
-      </article>
-      <article class="education-entry">
-        <div class="job-heading">
-          <h3><strong><a href="https://github.com/Myogamevideo/app-crypto">Atlas Crypto</a></strong></h3>
-          <p class="date">2026</p>
-        </div>
-        <p>Tableau de bord auto-hébergé pour suivre un portefeuille et analyser ses transactions · Python, Docker, SQLite.</p>
-      </article>
-      <article class="education-entry">
-        <div class="job-heading">
-          <h3><strong>Projets IoT &amp; Domotique</strong></h3>
-          <p class="date">Projet personnel</p>
-        </div>
-        <p>Homelab local : Proxmox VE/Docker, Home Assistant, passerelles Zigbee/Matter, flux MQTT, automatisation de l’autoconsommation solaire, pilotage thermique (PAC/chaudières) et supervision Grafana/Loki.</p>
-      </article>
-    </section>
+      <section>
+        <h2>Réalisations marquantes · Crédit Agricole Centre France</h2>
+        <p class="note">Intitulés volontairement génériques (confidentialité) ; détails en entretien.</p>
 
-    <section class="cv-education" aria-labelledby="education-heading">
-      <h2 id="education-heading">Formation</h2>
-
-      <article class="education-entry">
-        <div class="job-heading">
-          <h3><img class="entry-logo" src="assets/images/logos/iut-clermont-auvergne.png" alt="" aria-hidden="true">Licence professionnelle Métiers de l'informatique : applications web</h3>
-          <p class="date">2020–2021</p>
+        <div class="feat">
+          <div class="feat-head"><h3>Application métier d'assurance (V1 + V2)</h3><span>fév. 2023 – août 2026</span></div>
+          <p>V1 en PHP / Vue.js, puis V2 sur socle interne : API REST, notifications de rappel, recherches et filtres, corrections de recette, refactoring.</p>
         </div>
-        <p class="education-meta">IUT Clermont Auvergne · site d'Aubière (63) · Parcours Web / multimédia et webmaster · Mention assez bien</p>
-        <p>Analyse, maquettage, interfaces adaptatives, développement web, bases de données, services web et gestion de sites; PHP, HTML/CSS, JavaScript, SQL, Symfony.</p>
-      </article>
-
-      <article class="education-entry">
-        <div class="job-heading">
-          <h3><img class="entry-logo" src="assets/images/logos/iut-clermont-auvergne.png" alt="" aria-hidden="true">DUT Informatique</h3>
-          <p class="date">2018–2020</p>
+        <div class="feat">
+          <div class="feat-head"><h3>Application de gestion de financements</h3><span>oct. 2025 – sept. 2026</span></div>
+          <p>Réécriture d'un back-end historique sur socle interne : fiches, financements multiples, génération de PDF, front Angular 21, CI/CD adaptée à l'UAT.</p>
         </div>
-        <p class="education-meta">IUT Clermont Auvergne · site d'Aubière (63)</p>
-        <p>Algorithmique, programmation orientée objet, bases de données, conception logicielle, développement d'applications et projets en équipe.</p>
-      </article>
+        <div class="feat">
+          <div class="feat-head"><h3>Application de réservation</h3><span>déc. 2024 – nov. 2026</span></div>
+          <p>API et front Angular de bout en bout jusqu'à la mise en production : planification, validation, statuts, e-mails, RGAA.</p>
+        </div>
+        <div class="feat">
+          <div class="feat-head"><h3>Back-office financier</h3><span>janv. – avr. 2026</span></div>
+          <p>Suivi des souscriptions, documents et opérations : back-end (sécurité, tests, documentation) et front Angular. Livré en quatre mois.</p>
+        </div>
+        <div class="feat">
+          <div class="feat-head"><h3>Application de suivi d'activité</h3><span>avr. 2025 – août 2026</span></div>
+          <p>API et front Angular : statistiques, filtres, suivi, accès sécurisés aux documents ; recette métier, mises à jour du SDK et des dépendances.</p>
+        </div>
+        <div class="feat">
+          <div class="feat-head"><h3>Autres applications internes</h3><span>2023 – 2026</span></div>
+          <p>Outils de pilotage et de restitution d'indicateurs, workflow documentaire, portail de tutoriels, socle de démarrage back-end réutilisable — Symfony / API Platform, Angular, Vue.js.</p>
+        </div>
+      </section>
 
-    </section>
+    </div>
 
-    <section class="cv-languages" aria-labelledby="languages-heading">
-      <h2 id="languages-heading">Langues</h2>
-      <p class="languages">Français : langue maternelle · Anglais : B1 · Espagnol : A2</p>
-    </section>
-  </main>
+    <aside>
+      <section>
+        <h2>Compétences</h2>
+        <div class="skill-block">
+          <div class="label">Back-end &amp; API</div>
+          <div class="tags"><span class="tag">PHP</span><span class="tag">Symfony</span><span class="tag">API Platform</span><span class="tag">Doctrine</span><span class="tag">REST</span><span class="tag">SQL</span><span class="tag">Redis</span></div>
+        </div>
+        <div class="skill-block">
+          <div class="label">Front-end</div>
+          <div class="tags"><span class="tag">TypeScript</span><span class="tag">Angular</span><span class="tag">Vue.js</span><span class="tag">Twig</span><span class="tag">SCSS</span></div>
+        </div>
+        <div class="skill-block">
+          <div class="label">Infra &amp; CI/CD</div>
+          <div class="tags"><span class="tag">Docker</span><span class="tag">Ubuntu</span><span class="tag">GitLab CI/CD</span><span class="tag">Shell</span><span class="tag">Proxmox VE</span></div>
+        </div>
+        <div class="skill-block">
+          <div class="label">Méthode &amp; qualité</div>
+          <div class="tags"><span class="tag">Agile</span><span class="tag">Git</span><span class="tag">PHPUnit</span><span class="tag">SonarQube</span></div>
+        </div>
+        <div class="skill-block">
+          <div class="label">CMS &amp; outils IA</div>
+          <div class="tags"><span class="tag">WordPress</span><span class="tag">PrestaShop</span><span class="tag">Claude</span><span class="tag">Copilot</span></div>
+        </div>
+        <div class="skill-block">
+          <div class="label">Notions (formation / perso)</div>
+          <div class="tags"><span class="tag tag-soft">Python</span><span class="tag tag-soft">Node.js</span><span class="tag tag-soft">React</span><span class="tag tag-soft">PWA</span><span class="tag tag-soft">Storyblok</span></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Formation</h2>
+        <div class="edu">
+          <h3>Licence pro. Métiers de l'informatique — applications web</h3>
+          <p>IUT Clermont Auvergne (Aubière) · 2020–2021 · Mention assez bien</p>
+          <p>Parcours Web / multimédia : analyse, maquettage, interfaces adaptatives, services web, bases de données · PHP, Symfony, JavaScript</p>
+        </div>
+        <div class="edu">
+          <h3>DUT Informatique</h3>
+          <p>IUT Clermont Auvergne (Aubière) · 2018–2020 · Algorithmique, POO, bases de données, projets en équipe</p>
+        </div>
+        <div class="edu">
+          <h3>Bac général sciences de l'ingénieur — option ISN</h3>
+          <p>Lycée Pierre-Émile-Martin, Bourges · 2015–2018 · Mention bien</p>
+        </div>
+        <div class="edu">
+          <h3>Certification Google Ateliers Numériques</h3>
+          <p>Fondamentaux du marketing digital · fév. 2019 · SEO, présence en ligne, mesure d'audience</p>
+        </div>
+      </section>
+
+
+      <section>
+        <h2>Homelab &amp; domotique</h2>
+        <div class="proj">
+          <h3>Maison connectée auto-hébergée</h3>
+          <p>Proxmox VE / Docker, Home Assistant, Zigbee/Matter, MQTT. Autoconsommation solaire, pilotage thermique (PAC, chaudières), supervision Grafana / Loki.</p>
+        </div>
+      </section>
+    </aside>
+  </div>
+
+  <div class="band">
+    <div>
+      <h2>Au quotidien</h2>
+      <p class="b-item">Curiosité · Autonomie · Organisation · Esprit collectif · Méthode Agile</p>
+      <p class="b-item" style="margin-top:2px">Tests, qualité du code, livraisons fiables, à partir des besoins utilisateurs.</p>
+      <p class="b-item" style="margin-top:2px"><span class="b-label">IA copilote</span> — Claude et Copilot pour amorcer code et tests ; tout est relu et testé.</p>
+    </div>
+    <div>
+      <h2>Vie d'entreprise &amp; intérêts</h2>
+      <ul class="b-item">
+        <li>OpenStudio : séminaires, TousàOS, football</li>
+        <li>Homelab, domotique, solaire</li>
+        <li>Ressources de formation open source</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Langues &amp; mobilité</h2>
+      <p class="b-item">
+        <span class="b-label">Français</span> — langue maternelle<br/>
+        <span class="b-label">Anglais</span> — lecture technique<br/>
+        <span class="b-label">Espagnol</span> — A2<br/>
+        <span class="b-label">Mobilité</span> — Clermont-Ferrand, télétravail possible<br/>
+        <span class="b-label">Références</span> — sur demande
+      </p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
