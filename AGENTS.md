@@ -8,6 +8,9 @@
 - The CACF mission began in February 2023 and ends in November 2026; OpenStudio employment began in January 2023 and remains a CDI.
 - The CACF section presents 18 anonymized realization cards in a native disclosure panel. Generalize descriptions to avoid exposing internal app names, detailed business rules, or system-specific implementation details.
 - The portfolio also presents personal homelab/IoT work covering Proxmox, Docker, Home Assistant, MQTT, and energy monitoring.
+- Positioning is "développeur full-stack à dominante Symfony"; use the same wording in `index.html`, `cv.html`, `og:*`/`twitter:*` tags and the JSON-LD.
+- The public site URL is `https://myogamevideo.github.io/bougrat-alexandre/`; use it for `canonical`, `og:url` and `og:image`.
+- The site has no npm dependency. Icons come from a local Remixicon subset: add any new icon to `assets/css/remixicon-subset.css` and to the font in `assets/fonts/`.
 
 ## Content accuracy
 

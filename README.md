@@ -18,19 +18,13 @@ Le CV distingue les technologies utilisées en expérience professionnelle de ce
 
 ## Lancer le site
 
-Le projet n'a pas d'étape de compilation. Installez les dépendances JavaScript :
-
-```sh
-npm install
-```
-
-Servez ensuite le dossier avec un serveur HTTP local, par exemple :
+Le projet n'a ni étape de compilation ni dépendance : servez le dossier avec un serveur HTTP local, par exemple :
 
 ```sh
 python3 -m http.server 8000
 ```
 
-Ouvrez `http://localhost:8000`. Le serveur permet de charger les modules JavaScript locaux utilisés par les animations.
+Ouvrez `http://localhost:8000`.
 
 ## Générer le PDF du CV
 

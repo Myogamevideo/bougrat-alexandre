@@ -247,6 +247,14 @@ img {
     padding-bottom: 30px;
 }
 
+.ds-banner-content h1 .h1-line {
+    display: block;
+}
+
+.ds-banner-content h1 .nowrap {
+    white-space: nowrap;
+}
+
 .ds-banner-content h1 {
     font-weight: 600;
     font-size: 48px;
@@ -795,7 +803,7 @@ body #magicPointer {
 /* Portfolio refresh */
 :root {
     --ink: #172b3b;
-    --muted: #647483;
+    --muted: #5a6a78;
     --accent: #d65b4a;
     --accent-dark: #a53d32;
     --line: #e2e8eb;
@@ -1051,8 +1059,7 @@ button:focus-visible {
     }
 }
 
-.ds-skills-section .skills-panel,
-.ds-skills-section .infrastructure-row > .col-12 {
+.ds-skills-section .skills-panel {
     padding: 26px;
     border: 1px solid var(--line);
     border-radius: 18px;
@@ -1360,9 +1367,9 @@ button:focus-visible {
     padding: 76px 0 34px;
     color: #fff;
     background: #142635;
-    width: 100vw;
+    width: 100%;
     max-width: none;
-    margin-left: calc(50% - 50vw);
+    margin-left: 0;
     box-sizing: border-box;
 }
 
@@ -1512,8 +1519,7 @@ body #magicPointer {
         line-height: 1.75;
     }
 
-    .ds-skills-section .skills-panel,
-    .ds-skills-section .infrastructure-row > .col-12 {
+    .ds-skills-section .skills-panel {
         padding: 20px;
     }
 
@@ -1606,7 +1612,21 @@ body #magicPointer {
 .hero-download {
     margin-top: 20px;
     color: #fff;
-    background: #F26464;
+    background: var(--accent-dark);
+    border-color: var(--accent-dark);
+}
+
+.hero-keywords {
+    margin: 10px 0 0;
+    min-height: 1.5em;
+    color: #1f2d38;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.hero-keywords-label {
+    color: #526371;
+    font-weight: 500;
 }
 
 .hero-focus {
@@ -1760,7 +1780,7 @@ html.has-scroll-reveal .reveal-on-scroll.is-visible {
     margin-top: 22px;
 }
 
-.ds-skills-section .infrastructure-row .col-12 {
+.ds-skills-section .infrastructure-row .infrastructure-panel {
     border-color: #d5e2e6;
     background: linear-gradient(125deg, #f1f7f8 0%, #ffffff 75%);
     box-shadow: 0 10px 30px rgba(35, 77, 94, 0.07);
@@ -1928,9 +1948,9 @@ body {
 .personal-section {
     padding: 82px 0;
     background: #f3f6f7;
-    width: 100vw;
+    width: 100%;
     max-width: none;
-    margin-left: calc(50% - 50vw);
+    margin-left: 0;
     box-sizing: border-box;
 }
 
@@ -2956,5 +2976,133 @@ body {
 
     .iot-layer {
         padding: 14px;
+    }
+}
+
+/* Mobile : textes d'au moins 12 px et cibles tactiles d'au moins 24 px. */
+@media (max-width: 767px) {
+    body .ds-logo,
+    body .ds-logo span,
+    body .ds-numbervalulist span,
+    body .ds-social li a.header-contact,
+    body .soft-skills-panel h2,
+    body .entry-meta-label,
+    body .project-type,
+    body .iot-project-intro .project-type,
+    body .iot-layer-index,
+    body .mission-summary-kicker,
+    body .mission-summary-label,
+    body .mission-disclosure-hint,
+    body .mission-project-period,
+    body .mission-metric span,
+    body .personal-kicker,
+    body .personal-category,
+    body .personal-tags li,
+    body .ds-footer section .footer-kicker,
+    body .ds-footer .footer-listening .footer-kicker,
+    body .ds-footer .footer-actions .ds-button,
+    body .footer-bottom,
+    body .footer-bottom a {
+        font-size: 12px;
+    }
+
+    body .mission-summary-lead p,
+    body .mission-summary-card p,
+    body .mission-project-details .mission-project-volume,
+    body .mission-project-details .mission-project-stack {
+        font-size: 13px;
+    }
+
+    body .ds-quick-nav a,
+    body .ds-experience-list .ds-tech-list a {
+        display: inline-block;
+        padding: 5px 0;
+    }
+
+    body .project-links a,
+    body .personal-card > a,
+    body .footer-bottom a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 24px;
+    }
+}
+
+/* Mobile : en-tête sur deux lignes (logo + boutons, puis menu). */
+@media (max-width: 767px) {
+    body .ds-header,
+    body .ds-header.ds-fixed-header {
+        padding: 8px 0;
+    }
+
+    body .ds-header-inner {
+        min-height: 0;
+        row-gap: 2px;
+    }
+
+    body .ds-quick-nav {
+        padding-top: 0;
+    }
+
+    body .ds-social li a.header-contact {
+        width: 36px;
+        padding: 0;
+        justify-content: center;
+        gap: 0;
+    }
+
+    body .ds-social li a.header-contact .header-contact-label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+    }
+}
+
+/* Mobile : panneau CACF, sous-titre et période sous le titre. */
+@media (max-width: 767px) {
+    body .mission-project-disclosure > summary {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 28px;
+        grid-template-areas: "title icon" "hint icon";
+        align-items: center;
+        column-gap: 9px;
+        row-gap: 2px;
+    }
+
+    body .mission-project-disclosure > summary .mission-disclosure-title {
+        grid-area: title;
+    }
+
+    body .mission-project-disclosure > summary .mission-disclosure-hint {
+        grid-area: hint;
+        max-width: none;
+        margin-left: 0;
+        text-align: left;
+    }
+
+    body .mission-project-disclosure > summary::after {
+        grid-area: icon;
+    }
+
+    body .mission-project-card summary {
+        grid-template-columns: minmax(0, 1fr) 22px;
+        grid-template-areas: "title icon" "period icon";
+        row-gap: 6px;
+    }
+
+    body .mission-project-card summary .mission-project-title {
+        grid-area: title;
+    }
+
+    body .mission-project-card summary .mission-project-period {
+        grid-area: period;
+        justify-self: start;
+    }
+
+    body .mission-project-card summary::after {
+        grid-area: icon;
     }
 }
