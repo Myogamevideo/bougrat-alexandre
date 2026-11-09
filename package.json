@@ -15,9 +15,5 @@
   "bugs": {
     "url": "https://github.com/Myogamevideo/bougrat-alexandre/issues"
   },
-  "homepage": "https://github.com/Myogamevideo/bougrat-alexandre#readme",
-  "dependencies": {
-    "animejs": "^3.2.1",
-    "magicmouse.js": "^1.2.1"
-  }
+  "homepage": "https://github.com/Myogamevideo/bougrat-alexandre#readme"
 }

@@ -1,0 +1,37 @@
+@font-face {
+    font-family: "remixicon";
+    src: url("../fonts/remixicon-subset.woff2") format("woff2");
+    font-display: swap;
+}
+
+[class^="ri-"], [class*=" ri-"] {
+    font-family: "remixicon" !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.ri-arrow-down-s-line:before { content:"\ea4e"; }
+.ri-arrow-right-up-line:before { content:"\ea70"; }
+.ri-arrow-up-line:before { content:"\ea76"; }
+.ri-chat-quote-line:before { content:"\eb6b"; }
+.ri-code-s-slash-line:before { content:"\ebad"; }
+.ri-compass-3-line:before { content:"\ebbe"; }
+.ri-external-link-line:before { content:"\ecaf"; }
+.ri-funds-line:before { content:"\eda3"; }
+.ri-github-fill:before { content:"\edca"; }
+.ri-github-line:before { content:"\edcb"; }
+.ri-home-4-line:before { content:"\ee1d"; }
+.ri-home-gear-line:before { content:"\ee28"; }
+.ri-lightbulb-flash-line:before { content:"\eea8"; }
+.ri-line-chart-line:before { content:"\eeab"; }
+.ri-linkedin-box-line:before { content:"\eeb4"; }
+.ri-linkedin-fill:before { content:"\eeb5"; }
+.ri-list-check-2:before { content:"\eeb9"; }
+.ri-mail-line:before { content:"\eef6"; }
+.ri-music-2-line:before { content:"\ef83"; }
+.ri-pie-chart-2-line:before { content:"\eff6"; }
+.ri-refresh-line:before { content:"\f064"; }
+.ri-server-line:before { content:"\f0e0"; }
+.ri-shield-check-line:before { content:"\f100"; }
+.ri-team-line:before { content:"\f1ee"; }

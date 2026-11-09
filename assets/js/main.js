@@ -88,31 +88,3 @@ if (!reduceMotion) {
         tick();
     });
 }
-
-document.querySelectorAll(".value[akhi]").forEach((counter) => {
-    const target = Number.parseInt(counter.getAttribute("akhi"), 10);
-
-    if (!Number.isFinite(target) || target < 0) {
-        return;
-    }
-
-    if (reduceMotion) {
-        counter.textContent = String(target);
-        return;
-    }
-
-    const duration = 800;
-    const start = performance.now();
-    counter.textContent = "0";
-
-    const updateCounter = (now) => {
-        const progress = Math.min((now - start) / duration, 1);
-        counter.textContent = String(Math.floor(target * progress));
-
-        if (progress < 1) {
-            window.requestAnimationFrame(updateCounter);
-        }
-    };
-
-    window.requestAnimationFrame(updateCounter);
-});
