@@ -28,24 +28,18 @@ Ouvrez `http://localhost:8000`.
 
 ## Générer le PDF du CV
 
-Après toute modification de `cv.html`, régénérez le PDF avec Chrome ou Chromium en mode headless :
+Après toute modification de `cv.html`, régénérez le PDF :
 
 ```sh
-google-chrome --headless --no-sandbox --disable-gpu --no-pdf-header-footer \
-  --print-to-pdf="assets/pdf/BOUGRAT Alexandre CV.pdf" \
-  "file:///chemin/absolu/vers/bougrat-alexandre/cv.html"
+scripts/build-cv-pdf.sh
 ```
 
-Vérifiez que le PDF contient une page A4 :
-
-```sh
-pdfinfo "assets/pdf/BOUGRAT Alexandre CV.pdf"
-```
+Le script utilise Chrome ou Chromium en mode headless, vérifie que le PDF fait une seule page A4 (`pdfinfo`, paquet `poppler-utils`) et ne remplace `assets/pdf/BOUGRAT Alexandre CV.pdf` qu'en cas de succès.
 
 ## Vérifications
 
 - `git diff --check`
 - Vérifier le portfolio et le CV dans un navigateur sur ordinateur et mobile.
-- Vérifier que le PDF tient sur une seule page A4 après une modification du CV.
+- Vérifier que le PDF est à jour : `git log -1 --format=%cI -- cv.html` ne doit pas être plus récent que `git log -1 --format=%cI -- "assets/pdf/BOUGRAT Alexandre CV.pdf"` (avant commit, vérifier aussi que les deux fichiers sont dans le même lot : `git status --short`).
 
 Les expériences, périodes, volumes et informations personnelles sont présentés à partir des informations fournies par Alexandre. Vérifier les détails et technologies avant publication, notamment ceux qui ne sont pas explicitement confirmés.
