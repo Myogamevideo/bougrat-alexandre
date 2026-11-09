@@ -2,17 +2,20 @@ const header = document.querySelector(".ds-header");
 const pageContent = document.querySelector(".ds-banner, .ds-main-section");
 
 if (header && pageContent) {
-    pageContent.style.marginTop = `${header.offsetHeight}px`;
+    // Le header est fixe et sa hauteur change (menu sur deux lignes, police chargée).
+    const syncOffset = () => {
+        pageContent.style.marginTop = `${header.offsetHeight}px`;
+    };
+
+    if ("ResizeObserver" in window) {
+        new ResizeObserver(syncOffset).observe(header, { box: "border-box" });
+    } else {
+        syncOffset();
+        window.addEventListener("resize", syncOffset);
+    }
 }
 
 if (header) {
-    const updateHeader = () => {
-        header.classList.toggle("ds-fixed-header", window.scrollY >= 10);
-    };
-
-    updateHeader();
-    window.addEventListener("scroll", updateHeader, { passive: true });
-
     const footer = document.querySelector(".ds-footer");
     if (footer && "IntersectionObserver" in window) {
         const footerObserver = new IntersectionObserver(([entry]) => {
